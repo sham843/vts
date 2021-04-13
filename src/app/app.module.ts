@@ -8,6 +8,7 @@ import { LayoutComponent } from './partial/layout/layout.component';
 import { HeaderComponent } from './partial/layout/header/header.component';
 import { FooterComponent } from './partial/layout/footer/footer.component';
 import { SidebarComponent } from './partial/layout/sidebar/sidebar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SidebarComponent } from './partial/layout/sidebar/sidebar.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
