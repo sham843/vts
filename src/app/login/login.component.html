@@ -1,1 +1,93 @@
-<p>login works!</p>
+<svg viewBox="0 0 -10 60" id="landing-animation">
+    <defs>
+        <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#7e7ceb" />
+            <stop offset="1" stop-color="#353473" />
+        </linearGradient>
+    </defs>
+    <path d="M207.3,578
+    c-69.7-4.4-142-8-213.3-13.7V-6.1h536.5c50.1,113.3,89.1,264,10.3,372.3c-21.1,26.2-44.6,42.1-68.5,69.5
+    C403,513.1,315.5,580.6,207.3,578z" cx="50" cy="-100" r="700" stroke="#000" stroke-width="0"
+        fill="url(#linear-gradient)">
+        <animateTransform attributeName="transform" type="scale" additive="sum" from="5 5" to="1 1" begin="0s"
+            dur="1.5s"></animateTransform>
+    </path>
+</svg>
+<div class="container">
+    <div class="navbar navbar-light" id="topbar">
+        <a class="navbar-brand">
+            <img src="/assets/images/revenue_department.png" alt="Logo" class="white-logo">
+        </a>
+        <div class="form-inline">
+            <button class="btn btn-login" type="submit" data-bs-toggle="modal"
+                data-bs-target="#LoginModal">Login</button>
+        </div>
+    </div>
+    <div class="row" id="landing-content">
+        <div class="col-sm-6">
+            <div class="landing-heading mahatrack-heading">
+                <h1>Maha</h1>
+                <h2>Track</h2>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <img src="/assets/images/background_illustration.svg" alt="Landing" class="img-fluid" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <p class="text-secondary mb-0">Download the latest App version</p>
+            <a class="btn btn-Apps">
+                <img src="/assets/images/apple.svg" alt="Apply App Store" />
+                <p class="getit">Get it from</p>
+                <p class="store">App Store</p>
+            </a>
+            <a class="btn btn-Apps">
+                <img src="/assets/images/play-store.svg" alt="Apply App Store" />
+                <p class="getit">Get it from</p>
+                <p class="store">App Store</p>
+            </a>
+        </div>
+    </div>
+    <div class="bottom-patch mahatrack-bottom">
+        <img src="/assets/images/bottom-patch.svg">
+    </div>
+</div>
+
+<div class="container">
+    <footer class="fixed-bottom shadow-lg">
+        Copyright © 2021 mahakhanij. All rights Reserved.
+    </footer>
+</div>
+
+<div class="modal fade" id="LoginModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="LoginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header border-bottom-0">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body px-5">
+                <h6>Login</h6>
+                <div class="form-group mb-3">
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        <input type="text" class="form-control" id="txtUserName" placeholder="name@example.com">
+                    </div>
+                </div>
+                <div class="form-group mb-3">
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        <input type="password" class="form-control" id="txtPassword" placeholder="Password">
+                        <span class="input-group-text"> <i class="fas fa-eye"></i></span>
+                    </div>
+                </div>
+                <div class="text-end">
+                    <a href="#" class="btn-generate">Generate Password</a>
+                </div>
+            </div>
+            <div class="modal-footer text-center d-block border-top-0">
+                <button type="button" class="btn btn-main btn-sm px-5">Login</button>
+            </div>
+        </div>
+    </div>
+</div>

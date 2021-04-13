@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="90.67" height="161.6" viewBox="0 0 90.67 161.6">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#7e7ceb"/>
+      <stop offset="1" stop-color="#353473"/>
+    </linearGradient>
+  </defs>
+  <path id="blue_bg_patch2" d="M-7098.5-7260.4h-88.129a213.2,213.2,0,0,1-2.275-21.395,152.073,152.073,0,0,1,.721-26.383,131.985,131.985,0,0,1,4.949-23.541,125.754,125.754,0,0,1,8.574-20.854,131.166,131.166,0,0,1,11.6-18.323c15.179-20.119,36.9-37.312,64.564-51.1v161.6Z" transform="translate(7189.17 7422)" fill="url(#linear-gradient)"/>
+</svg>
