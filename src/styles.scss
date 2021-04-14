@@ -81,10 +81,13 @@
 body {
 	margin: 0;
 	font-family: 'Inter', sans-serif;
+	background-color: #f8f9fa!important;
+	font-weight: 300;
 }
 :root {
 	--main-color: #7D7BEE;
 	--main-hover-color: #504dee;
+	--sidebar-bg-color:#fff;
 }
 svg {
 	width: 100%;
@@ -164,8 +167,19 @@ svg {
 }
 footer {
 	text-align: center;
-	font-size: 0.75rem;
+	font-size: 0.7rem;
 	padding: 10px 0px;
+}
+#footer
+{
+	position: absolute;
+    bottom: 0;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    font-size: 0.7rem;
+    border-top: solid 1px #eee;
+    background: #fff;
 }
 .mahatrack-heading {
 	animation: fullpageanimation linear 2s;
@@ -246,4 +260,11 @@ footer {
 		background-color: var(--main-hover-color);
 		color: #fff;
 	}
+}
+.mat-form-field {
+    width: 100%;
+}
+.main-content
+{
+	padding: 15px;
 }

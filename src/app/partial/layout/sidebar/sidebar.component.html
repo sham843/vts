@@ -1,1 +1,95 @@
-<p>sidebar works!</p>
+<div id="sidebar-wrapper" [class.active]="_showSidebar">
+    <div class="sidebar-header">
+        <img src="/assets/images/RevenueDeptLogo.png" class="sidebar-logo" alt="Revenue Dept Logo" />
+    </div>
+    <div class="accordion" id="sidebar-menu">
+        <div class="sidemenu-item">
+            <a href="#">
+                <i class="bi bi-columns"></i>Dashboard
+            </a>
+        </div>
+        <div class="accordion-item">
+            <div class="accordion-header" id="headingOne">
+                <a class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <i class="bi bi-geo-alt-fill"></i>Map
+                </a>
+            </div>
+            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                data-bs-parent="#sidebar-menu">
+                <div class="accordion-body">
+                    <div class="list-group list-group-flush">
+                        <a href="#" class="list-group-item list-group-item-action"><i class="bi bi-map-fill"></i>Map</a>
+                        <a href="#" class="list-group-item list-group-item-action"><i class="bi bi-broadcast"></i>Tracking</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <div class="accordion-header" id="headingTwo">
+                <a class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    <i class="bi bi-archive-fill"></i>Master
+                </a>
+            </div>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                data-bs-parent="#sidebar-menu">
+                <div class="accordion-body">
+                    <div class="list-group list-group-flush">
+                        <a href="#" class="list-group-item list-group-item-action"><i class="bi bi-card-heading"></i>POI</a>
+                        <a href="#" class="list-group-item list-group-item-action"><i class="bi bi-file-break-fill"></i>Breakdown</a>
+                        <a href="#" class="list-group-item list-group-item-action"><i class="bi bi-lightning-charge-fill"></i>Recharge</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <div class="accordion-header" id="headingThree">
+                <a class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    <i class="bi bi-minecart-loaded"></i>Mining
+                </a>
+            </div>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                data-bs-parent="#sidebar-menu">
+                <div class="accordion-body">
+                    <div class="accordion list-group list-group-flush" id="sidemenu-subitem">
+                        <div class="accordion-item list-group-item list-group-item-action p-0">
+                          <div class="accordion-header" id="headingThreeOne">
+                            <button class="accordion-button collapsed shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThreeOne" aria-expanded="true" aria-controls="collapseThreeOne">
+                                <i class="bi bi-file-bar-graph"></i>General
+                            </button>
+                          </div>
+                          <div id="collapseThreeOne" class="accordion-collapse collapse" aria-labelledby="headingThreeOne" data-bs-parent="#sidemenu-subitem">
+                            <div class="accordion-body">
+                                <div class="list-group list-group-flush">
+                                    <a href="#" class="list-group-item list-group-item-action">Summary</a>
+                                    <a href="#" class="list-group-item list-group-item-action">Speed Range</a>
+                                    <a href="#" class="list-group-item list-group-item-action">Trip</a>
+                                    <a href="#" class="list-group-item list-group-item-action">Address</a>
+                                    <a href="#" class="list-group-item list-group-item-action">OverSpeed</a>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="accordion-item list-group-item list-group-item-action p-0">
+                          <div class="accordion-header" id="headingThreeTwo">
+                            <button class="accordion-button collapsed shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThreeTwo" aria-expanded="false" aria-controls="collapseThreeTwo">
+                                <i class="bi bi-file-richtext"></i>Mining
+                            </button>
+                          </div>
+                          <div id="collapseThreeTwo" class="accordion-collapse collapse" aria-labelledby="headingThreeTwo" data-bs-parent="#sidemenu-subitem">
+                            <div class="accordion-body">
+                                <div class="list-group list-group-flush">
+                                    <a href="#" class="list-group-item list-group-item-action">Invoice</a>
+                                    <a href="#" class="list-group-item list-group-item-action">Material Order</a>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
