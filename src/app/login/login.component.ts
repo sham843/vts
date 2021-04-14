@@ -17,15 +17,15 @@ export class LoginComponent implements OnInit {
   data: any;
   toggle: boolean = false;
   hide = true;
-  
+
   constructor(
     private formBuilder: FormBuilder,
     private _snackBar: MatSnackBar,
     private router: Router,
     private spinner: NgxSpinnerService,
     private route: ActivatedRoute,
-    private _commonService:CommonService,
-    private _callAPIService:CallAPIService
+    private _commonService: CommonService,
+    private _callAPIService: CallAPIService
   ) { }
 
   ngOnInit(): void {
@@ -56,13 +56,13 @@ export class LoginComponent implements OnInit {
     }
     else {
       this.data = this.loginForm.value;
-      this._callAPIService.callAPI('get', 'vehicle-tracking/login/login-web?' + 'UserName='+this.data.username+'&Password='+this.data.password  , false, false, false, 'vehicleTrackingBaseUrlApi');
+      this._callAPIService.callAPI('get', 'vehicle-tracking/login/login-web?' + 'UserName=' + this.data.username + '&Password=' + this.data.password, false, false, false, 'vehicleTrackingBaseUrlApi');
       this._callAPIService.getResponse().subscribe((res: any) => {
         if (res.statusCode === "200") {
           localStorage.setItem('loggedInDetails', JSON.stringify(res));
           this.router.navigate(['../dashboard'], { relativeTo: this.route })
           this._snackBar.open(res.statusMessage, "Close", {
-                  duration: 1000,
+            duration: 1000,
           });
           this.spinner.hide();
         }
@@ -70,10 +70,10 @@ export class LoginComponent implements OnInit {
           this.spinner.hide();
           this._snackBar.open(res.statusMessage);
         }
-      
-    })
+
+      })
+    }
   }
 }
-}
-  
+
 
