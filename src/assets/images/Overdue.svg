@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32.725" height="35.025" viewBox="0 0 32.725 35.025">
+  <g id="Overdue" transform="translate(-61.132)">
+    <path id="Path_4042" data-name="Path 4042" d="M241,0h2.052V4.928H241Z" transform="translate(-164.536)" fill="#ff4a4a"/>
+    <path id="Path_4043" data-name="Path 4043" d="M0,0H4.928V2.052H0Z" transform="translate(81.466 5.312) rotate(-68.156)" fill="#ff4a4a"/>
+    <path id="Path_4044" data-name="Path 4044" d="M0,0H4.928V2.052H0Z" transform="matrix(0.674, -0.739, 0.739, 0.674, 85.769, 7.697)" fill="#ff4a4a"/>
+    <path id="Path_4050" data-name="Path 4050" d="M0,0H4.928V2.052H0Z" transform="translate(88.519 11.586) rotate(-23)" fill="#ff4a4a"/>
+    <path id="Path_4045" data-name="Path 4045" d="M0,0H2.052V4.928H0Z" transform="translate(69.778 1.49) rotate(-21.844)" fill="#ff4a4a"/>
+    <path id="Path_4046" data-name="Path 4046" d="M0,0H2.052V4.928H0Z" transform="matrix(0.739, -0.674, 0.674, 0.739, 64.382, 5.438)" fill="#ff4a4a"/>
+    <path id="Path_4051" data-name="Path 4051" d="M0,0H2.052V4.928H0Z" transform="translate(61.132 11.642) rotate(-69)" fill="#ff4a4a"/>
+    <path id="Path_4047" data-name="Path 4047" d="M120,364h18.607v2.463H120Z" transform="translate(-51.814 -339.099)" fill="#ff4a4a"/>
+    <path id="Path_4048" data-name="Path 4048" d="M108.355,430H88.767A3.252,3.252,0,0,0,87,432.89v2.719h23.122V432.89A3.252,3.252,0,0,0,108.355,430Z" transform="translate(-21.071 -400.584)" fill="#ff4a4a"/>
+    <path id="Path_4049" data-name="Path 4049" d="M138.607,129.3a9.3,9.3,0,1,0-18.607,0v5.336h18.607Zm-8.277,2.758h-2.052v-2.052h2.052Zm0-3.466h-2.052v-5.564h2.052Z" transform="translate(-51.814 -111.791)" fill="#ff4a4a"/>
+  </g>
+</svg>
