@@ -1,70 +1,183 @@
 <svg viewBox="0 0 -10 60" id="landing-animation">
-    <defs>
-        <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
-            <stop offset="0" stop-color="#7e7ceb" />
-            <stop offset="1" stop-color="#353473" />
-        </linearGradient>
-    </defs>
-    <path d="M207.3,578
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#7e7ceb" />
+      <stop offset="1" stop-color="#353473" />
+    </linearGradient>
+  </defs>
+  <path d="M207.3,578
     c-69.7-4.4-142-8-213.3-13.7V-6.1h536.5c50.1,113.3,89.1,264,10.3,372.3c-21.1,26.2-44.6,42.1-68.5,69.5
     C403,513.1,315.5,580.6,207.3,578z" cx="50" cy="-100" r="700" stroke="#000" stroke-width="0"
-        fill="url(#linear-gradient)">
-        <animateTransform attributeName="transform" type="scale" additive="sum" from="5 5" to="1 1" begin="0s"
-            dur="1.5s"></animateTransform>
-    </path>
+    fill="url(#linear-gradient)">
+    <!-- <animateTransform attributeName="transform" type="scale" additive="sum" from="5 5" to="1 1" begin="0s"
+            dur="1.5s"></animateTransform> -->
+  </path>
 </svg>
-<div class="container">
-    <div class="navbar navbar-light" id="topbar">
-        <a class="navbar-brand">
-            <img src="/assets/images/revenue_department.png" alt="Logo" class="white-logo">
-        </a>
-        <div class="form-inline">
-            <button class="btn btn-login" type="submit" data-bs-toggle="modal"
-                data-bs-target="#LoginModal">Login</button>
+<div class="container ">
+  <div class="navbar navbar-light" id="topbar">
+    <a class="navbar-brand">
+      <img src="/assets/images/revenue_department.png" alt="Logo" class="white-logo">
+    </a>
+    <div class="form-inline position-relative">
+      <!-- <button class="btn btn-login" type="submit" data-bs-toggle="modal"
+                data-bs-target="#LoginModal">Login</button> -->
+      <!-- <nav class="navbar navbar-expand-lg navbar-light ">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item dropdown">
+                <a class="btn btn-login " href="#" id="Loginpopup" role="button" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  Login
+                </a>
+                <ul class="dropdown-menu p-0 border-0" aria-labelledby="Loginpopup">
+                  <div class="card border-0 px-5">
+                    <div class="card-header border-bottom-0 bg-transparent">
+                      <h6>Login</h6>
+                    </div>
+                    <div class="card-body">
+                      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" mouseenter>
+                        <div class="form-group has-feedback">
+                          <mat-form-field class="example-full-width" appearance="fill">
+                            <mat-label>username</mat-label>
+                            <input matInput autofocus placeholder="User Name" formControlName="username">
+                            <mat-error *ngIf="loginForm.controls.username.errors?.required">User name is required
+                            </mat-error>
+                          </mat-form-field>
+                        </div>
+                        <div class="form-group has-feedback">
+                          <mat-form-field class="example-full-width" appearance="fill">
+                            <mat-label>Password</mat-label>
+                            <input [type]="hide ? 'password' : 'text'" matInput autofocus placeholder="Password"
+                              formControlName="password">
+                            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}
+                            </mat-icon>
+                            <mat-error *ngIf="loginForm.controls.password.errors?.required">Password is required
+                            </mat-error>
+                          </mat-form-field>
+                        </div>
+
+                        <div class="generate_pwd text-end">
+                          <button type="button" class="btn btn-sm btn-link" id="sendSMS_obtn">Generate
+                            Password</button>
+                        </div>
+                        <div class="modal-footer text-center d-block border-top-0">
+                          <button type="submit" class="btn btn-main btn-sm px-5">Login</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </ul>
+              </li>
+            </ul>
+
+          </div>
         </div>
-    </div>
-    <div class="row" id="landing-content">
-        <div class="col-sm-6">
-            <div class="landing-heading mahatrack-heading">
-                <h1>Maha</h1>
-                <h2>Track</h2>
-            </div>
+      </nav>  -->
+
+
+
+
+      <button class="btn btn-login" type="button" (click)="showLogin=!showLogin">Login</button>
+      <div *ngIf="showLogin" class="login_popup">
+        <div class="card border-0">
+          <div class="card-header border-bottom-0 bg-transparent text-center">
+            <i class="fa fa-times" (click)="showLogin=!showLogin"></i>
+            <h6>Login</h6>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" mouseenter>
+              <div class="form-group has-feedback">
+                <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>username</mat-label>
+                  <input matInput autofocus placeholder="User Name" formControlName="username">
+                  <mat-error *ngIf="loginForm.controls.username.errors?.required">User name is required
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="form-group has-feedback">
+                <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>Password</mat-label>
+                  <input [type]="hide ? 'password' : 'text'" matInput autofocus placeholder="Password"
+                    formControlName="password">
+                  <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}
+                  </mat-icon>
+                  <mat-error *ngIf="loginForm.controls.password.errors?.required">Password is required
+                  </mat-error>
+                </mat-form-field>
+              </div>
+
+              <div class="generate_pwd text-end">
+                <button type="button" class="btn btn-sm btn-link" id="sendSMS_obtn">Generate
+                  Password</button>
+              </div>
+              <div class="modal-footer text-center d-block border-top-0">
+                <button type="submit" class="btn btn-main btn-sm px-5">Login</button>
+              </div>
+            </form>
+          </div>
         </div>
-        <div class="col-sm-6">
-            <img src="/assets/images/background_illustration.svg" alt="Landing" class="img-fluid" />
-        </div>
+      </div>
     </div>
-    <div class="row">
-        <div class="col-sm-12">
-            <p class="text-secondary mb-0">Download the latest App version</p>
-            <a class="btn btn-Apps">
-                <img src="/assets/images/apple.svg" alt="Apply App Store" />
-                <p class="getit">Get it from</p>
-                <p class="store">App Store</p>
-            </a>
-            <a class="btn btn-Apps">
-                <img src="/assets/images/play-store.svg" alt="Apply App Store" />
-                <p class="getit">Get it from</p>
-                <p class="store">App Store</p>
-            </a>
-        </div>
+  </div>
+  <div class="row" id="landing-content">
+    <div class="col-sm-6">
+      <div class="landing-heading mahatrack-heading">
+        <h1>Maha</h1>
+        <h2>Track</h2>
+      </div>
     </div>
-    <div class="bottom-patch mahatrack-bottom">
-        <img src="/assets/images/bottom-patch.svg">
+    <div class="col-sm-6">
+      <img src="/assets/images/background_illustration.svg" alt="Landing" class="img-fluid" />
     </div>
+  </div>
+  <div class="row mb-5">
+    <div class="col-sm-12 ">
+      <p class="mb-2">Download the latest App version</p>
+      <a class="btn btn-Apps">
+        <img src="/assets/images/apple.svg" alt="Apply App Store" />
+        <p class="getit">Get it from</p>
+        <p class="store">App Store</p>
+      </a>
+      <a class="btn btn-Apps">
+        <img src="/assets/images/play-store.svg" alt="Apply App Store" />
+        <p class="getit">Get it from</p>
+        <p class="store">App Store</p>
+      </a>
+    </div>
+  </div>
+  <div class="bottom-patch mahatrack-bottom">
+    <img src="/assets/images/bottom-patch.svg">
+  </div>
 </div>
 
-<div class="container">
+<!-- <div class="container">
     <footer class="fixed-bottom shadow-lg">
         Copyright © 2021 mahakhanij. All rights Reserved.
     </footer>
-</div>
+</div> -->
 
-<div class="modal fade" id="LoginModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="LoginModalLabel"
+<footer class="fixed-bottom">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 offset-md-1">
+        <p class="mb-0 text-center">Copyright © 2021 Maha Khanij All rights Reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- <div class="modal fade" id="LoginModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="LoginModalLabel"
     aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header border-bottom-0">
+            <div class="modal-header border-bottom-0 pb-0">
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body px-5">
@@ -90,8 +203,8 @@
                         </mat-form-field>
                     </div>
 
-                    <div class="generate_pwd" style="position:relative">
-                        <button type="button" class="btn btn-link w-100 text-right d-block" id="sendSMS_obtn">Generate
+                    <div class="generate_pwd text-end" >
+                        <button type="button" class="btn btn-sm btn-link" id="sendSMS_obtn">Generate
                             Password</button>
                     </div>
                     <div class="modal-footer text-center d-block border-top-0">
@@ -102,4 +215,4 @@
             
         </div>
     </div>
-</div>
+</div> -->

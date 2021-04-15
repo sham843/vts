@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   data: any;
   toggle: boolean = false;
   hide = true;
+  showLogin: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
