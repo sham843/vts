@@ -392,3 +392,55 @@ footer {
 		}
 	}
 }
+#report-container
+{
+	#report-content
+	{
+		background-color: #fff;
+		padding: 10px;
+	}
+	#report-header
+	{
+		h5{
+			margin-bottom: 0;
+			font-weight: 900;
+			color: var(--main-color);
+			margin-top: 3px;
+		}
+		.report-info
+		{
+			font-size: 0.85rem;
+			span{
+				font-weight: 900;
+			}
+		}
+		
+	}
+	.table
+		{
+			margin-top: 10px;
+			font-size: 0.8rem;
+			thead{
+				background-color: #eee;
+				vertical-align: middle;
+			}
+		}
+	#report-forms
+	{
+		padding-left: 0;
+		.form-label
+		{
+			font-size: 0.75rem;
+			font-weight: 500;
+			margin-bottom: 3px;
+			color: #777;
+		}
+		.form-control,
+		.form-select, 
+		.btn
+		{
+			box-shadow: none;
+			font-size: 0.85rem;
+		}
+	}
+}
