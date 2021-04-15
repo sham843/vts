@@ -268,3 +268,127 @@ footer {
 {
 	padding: 15px;
 }
+#dashboard-stats
+{
+	.card
+	{
+		border: none;
+		border-radius: 20px;
+		.dash-count
+		{
+			font-weight: 900;
+			color: #fff;
+			font-size: 2.4rem;
+			margin-bottom: 0;
+		}
+		.dash-unit
+		{
+			font-weight: 900;
+			color: #fff;
+			font-size: 0.85rem;
+		}
+		.dash-descri
+		{
+			font-size: 0.85rem;
+			font-weight: 700;
+			margin-bottom: 5px;
+		}
+		.dash-head
+		{
+			background-color: rgba(255, 255, 255, 0.4);
+			padding: 5px;
+			font-weight: 900;
+			border-top-right-radius: 20px;
+			border-bottom-right-radius: 20px;
+			margin-left: -16px;
+			padding-left: 16px;
+		}
+	}
+	.card-orange
+	{
+		background: transparent linear-gradient(126deg, #FCD396 0%, #FFB16D 100%) 0% 0% no-repeat padding-box;
+	}
+	.text-orange
+	{
+		color: #FFB16D;
+	}
+	.card-pink
+	{
+		background: transparent linear-gradient(130deg, #FFB9B9 0%, #F96EA6 100%) 0% 0% no-repeat padding-box;
+	}
+	.text-pink
+	{
+		color:#F96EA6;
+	}
+	.card-cyan
+	{
+		background: transparent linear-gradient(136deg, #CBFFFB 0%, #76D3E6 100%) 0% 0% no-repeat padding-box;
+	}
+	.text-cyan
+	{
+		color:#76D3E6;
+	}
+	.card-blue
+	{
+		background: transparent linear-gradient(127deg, #B9B8FF 0%, #7C7CEE 100%) 0% 0% no-repeat padding-box;
+	}
+	.text-blue
+	{
+		color:#7C7CEE;
+	}
+	.dash-icon
+	{
+		position: absolute;
+		right: 12px;
+		top: -25px;
+		width: 70px;
+	}
+}
+#dashboard-charts
+{
+	.card
+	{
+		border: none;
+		border-radius: 20px;
+		.card-header
+		{
+			background-color: transparent;
+			border-bottom: none;
+			font-weight: 800;
+			color:var(--main-color);
+			padding: 15px 25px;
+		}
+		.card-body
+		{
+			h2{
+				font-weight: 900;
+				margin-bottom: 0;
+			}
+			img{
+				width: 24px;
+				margin: 10px 0;
+			}
+			.dash-label
+			{
+				background-color: rgba(124, 124, 238, 0.1);
+			padding: 5px;
+			font-weight: 900;
+			border-top-right-radius: 20px;
+			border-bottom-right-radius: 20px;
+			margin-left: -16px;
+			padding-left: 16px;
+			color: #7C7CEE;
+			}
+			.card-table
+			{
+				height: 10rem;
+				max-height: 10rem;
+				overflow-y: scroll;
+				.table{
+					font-size: 0.85rem;
+				}
+
+			}
+		}
+	}
+}

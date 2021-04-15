@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="88" height="89" viewBox="0 0 88 89">
+  <defs>
+    <filter id="Rectangle_1448" x="0" y="0" width="88" height="89" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-color="#a74b68" flood-opacity="0.2"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Fuel_Drop" data-name="Fuel Drop" transform="translate(-646 -149)">
+    <g transform="matrix(1, 0, 0, 1, 646, 149)" filter="url(#Rectangle_1448)">
+      <rect id="Rectangle_1448-2" data-name="Rectangle 1448" width="70" height="71" rx="15" transform="translate(9 6)" fill="#fff"/>
+    </g>
+    <g id="gas-station" transform="translate(633.328 173.592)">
+      <g id="Group_2356" data-name="Group 2356" transform="translate(42.666)">
+        <path id="Path_4023" data-name="Path 4023" d="M69.979,4.329,67.227,1.577a.688.688,0,0,0-.973.973L68.52,4.815,66.255,7.08a.687.687,0,0,0-.2.486V9.63A2.754,2.754,0,0,0,68.8,12.381V24.075a.688.688,0,0,1-1.376,0V22.7a2.066,2.066,0,0,0-2.064-2.064h-.688V2.751A2.754,2.754,0,0,0,61.926,0H48.169a2.754,2.754,0,0,0-2.751,2.751V27.514a2.754,2.754,0,0,0-2.751,2.751v2.064a.687.687,0,0,0,.688.688H66.741a.687.687,0,0,0,.688-.688V30.266a2.754,2.754,0,0,0-2.751-2.751v-5.5h.688a.688.688,0,0,1,.688.688v1.376a2.064,2.064,0,1,0,4.127,0V4.815A.688.688,0,0,0,69.979,4.329Zm-8.053,7.378a.687.687,0,0,1-.688.688H48.857a.687.687,0,0,1-.688-.688V3.439a.687.687,0,0,1,.688-.688H61.238a.687.687,0,0,1,.688.688Z" transform="translate(-42.666)" fill="#cb4e73"/>
+      </g>
+    </g>
+  </g>
+</svg>

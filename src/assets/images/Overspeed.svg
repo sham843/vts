@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="88" height="89" viewBox="0 0 88 89">
+  <defs>
+    <filter id="Rectangle_1445" x="0" y="0" width="88" height="89" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-color="#915f2b" flood-opacity="0.2"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Overspeed" transform="translate(-377 -149)">
+    <g transform="matrix(1, 0, 0, 1, 377, 149)" filter="url(#Rectangle_1445)">
+      <rect id="Rectangle_1445-2" data-name="Rectangle 1445" width="70" height="71" rx="15" transform="translate(9 6)" fill="#fff"/>
+    </g>
+    <g id="speedometer" transform="translate(399.748 136.667)">
+      <path id="Path_4016" data-name="Path 4016" d="M98.264,35.154a20.609,20.609,0,0,0-12.591,5.217L91.1,45.8a13,13,0,0,1,7.165-2.969Z" transform="translate(-78.728)" fill="#c58640"/>
+      <path id="Path_4017" data-name="Path 4017" d="M10.661,126.148l-5.426-5.426A20.608,20.608,0,0,0,.011,133.314H7.686A13.007,13.007,0,0,1,10.661,126.148Z" transform="translate(-0.01 -78.632)" fill="#c58640"/>
+      <path id="Path_4018" data-name="Path 4018" d="M383.586,133.314h7.675a20.607,20.607,0,0,0-5.224-12.592l-5.426,5.426A13.007,13.007,0,0,1,383.586,133.314Z" transform="translate(-349.758 -78.632)" fill="#c58640"/>
+      <path id="Path_4019" data-name="Path 4019" d="M401.823,306.055a12.951,12.951,0,0,1-1.337,4.688c.617.951,1.131,1.755,1.47,2.288a3.652,3.652,0,0,1-1.5,5.248l1.264,1.264a1.218,1.218,0,0,0,1.722,0,20.634,20.634,0,0,0,6.056-13.488Z" transform="translate(-367.996 -248.941)" fill="#c58640"/>
+      <path id="Path_4020" data-name="Path 4020" d="M7.677,306.055H0a20.634,20.634,0,0,0,6.056,13.488,1.218,1.218,0,0,0,1.722,0l3.689-3.69a1.218,1.218,0,0,0,0-1.723,13.052,13.052,0,0,1-3.79-8.076Z" transform="translate(0 -248.941)" fill="#c58640"/>
+      <path id="Path_4021" data-name="Path 4021" d="M283.591,40.371A20.609,20.609,0,0,0,271,35.154v7.674a13.005,13.005,0,0,1,7.165,2.969Z" transform="translate(-249.032)" fill="#c58640"/>
+      <path id="Path_4022" data-name="Path 4022" d="M215.412,245.312a3.821,3.821,0,0,0-5.4,5.4c1.882,1.882,11.131,7.787,12.179,8.454a1.216,1.216,0,0,0,1.679-1.679C223.2,256.442,217.294,247.193,215.412,245.312Z" transform="translate(-191.958 -192.095)" fill="#c58640"/>
+    </g>
+  </g>
+</svg>
