@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
     this.spinner.show();
     this.submitted = true;
     if (this.loginForm.invalid) {
-      this.spinner.hide();
+      this.spinner.hide(); 
       return;
     }
     else {

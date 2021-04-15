@@ -1,0 +1,54 @@
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+.wrapper {
+	display: flex;
+	width: 100%;
+}
+
+#sidebar.active {
+	margin-left: -250px;
+}
+a[aria-expanded="true"] {
+	color: #fff;
+	background: #6d7fcc;
+}
+a[data-toggle="collapse"] {
+	position: relative;
+}
+.dropdown-toggle {
+	&::after {
+		display: block;
+		position: absolute;
+		top: 50%;
+		right: 20px;
+		transform: translateY(-50%);
+	}
+}
+#content {
+	width: 100%;
+	min-height: 100vh;
+	transition: all 0.3s;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+#content.active {
+	width: calc(100% - 250px);
+}
+@media (max-width: 768px) {
+	#content {
+		width: 100%;
+	}
+	#content.active {
+		width: calc(100% - 250px);
+	}
+	#sidebarCollapse {
+		span {
+			display: none;
+		}
+	}
+}
