@@ -20,11 +20,11 @@
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li class="border-bottom pb-2">
-                                <h2 class="dropdown-header mb-0 py-0">Amol Pawar</h2>
-                                <small>9876543210</small>
+                                <h2 class="dropdown-header mb-0 py-0">{{getUserName}}</h2>
+                                <small>{{getMobileNo}}</small>
                             </li>
                             <li class="drop-item"><button class="dropdown-item text-primary" type="button"><i class="bi bi-key-fill mr-2"></i> Change Password</button></li>
-                            <li class="drop-item"><button class="dropdown-item text-danger" type="button"><i class="bi bi-power mr-2"></i> Logout</button></li>
+                            <li class="drop-item"><button class="dropdown-item text-danger" type="button" (click)="logout()"><i class="bi bi-power mr-2"></i> Logout</button></li>
                         </ul>
                     </li>
                 </ul>
