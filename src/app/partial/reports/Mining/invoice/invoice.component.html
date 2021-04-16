@@ -1,1 +1,91 @@
-<p>invoice works!</p>
+<div id="report-container">
+    <div class="row m-0">
+        <div class="col-sm-3" id="report-forms">
+            <div class="card card-body border-0">
+                <div class="mb-3">
+                    <label for="ddlVehicleNo" class="form-label">Vehicle No.</label>
+                    <select class="form-select" id="ddlVehicleNo">
+                        <option value="">Select Vehicle No</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="txtFromDate" class="form-label">From Date</label>
+                    <input type="datetime-local" class="form-control" id="txtFromDate">
+                </div>
+                <div class="mb-3">
+                    <label for="txtToDate" class="form-label">To Date</label>
+                    <input type="datetime-local" class="form-control" id="txtToDate">
+                </div>
+                <div class="d-grid gap-2 d-md-block">
+                    <button type="reset" class="btn btn-primary me-2">Refresh</button>
+                    <button type="submit" class="btn btn-success">Search</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-9" id="report-content">
+            <div class="row"  id="report-header">
+                <div class="col-sm-6">
+                    <h5>Invoice Report</h5>
+                </div>
+                <div class="col-sm-6 text-end">
+                    <span class="me-3">Current Date</span>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-outline-primary btn-sm dropdown-toggle"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-cloud-arrow-down-fill me-2"></i>Download
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><button class="dropdown-item" type="button"><i
+                                        class="bi bi-file-earmark-font-fill me-2"></i> PDF</button></li>
+                            <li><button class="dropdown-item" type="button"><i
+                                        class="bi bi-file-earmark-excel-fill me-2"></i> Excel</button></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="w-100"><hr></div>
+                <div class="col-sm-6 report-info">
+                    Vehicle : <span class="text-primary">MH12AS1111</span>
+                </div>
+                <div class="col-sm-6 text-end report-info">
+                    Date : <span class="text-primary">23-01-2021 to 14-02-2021</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <table class="table align-middle">
+                        <thead>
+                            <tr>
+                                <th>Sr.</th>
+                                <th>Invoice</th>
+                                <th>Validity From</th>
+                                <th>Validity To</th>
+                                <th>Plot</th>
+                                <th>Destination</th>
+                                <th>Driver</th>
+                                <th>Dist.<small>(Km)</small></th>
+                                <th>Qty.</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>12864341</td>
+                                <td>05/11/2020 10:26AM</td>
+                                <td>05/11/2020 10:26AM</td>
+                                <td>Gut No - 85 (Kinhala...</td>
+                                <td>Shivmadka</td>
+                                <td>Ashok (9623...</td>
+                                <td>6</td>
+                                <td>7</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
