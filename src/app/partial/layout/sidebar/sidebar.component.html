@@ -1,6 +1,6 @@
 <div id="sidebar-wrapper" [class.active]="_showSidebar">
     <div class="sidebar-header">
-        <img src="/assets/images/RevenueDeptLogo.png" class="sidebar-logo" alt="Revenue Dept Logo" />        
+        <img src="/assets/images/RevenueDeptLogo.png" class="sidebar-logo" alt="Revenue Dept Logo"  routerLink="dashboard"/>        
     </div>
     <div class="sidebar-heading">
         <h2>
@@ -9,7 +9,7 @@
     </div>
     <div class="accordion" id="sidebar-menu">
         <div class="sidemenu-item">
-            <a href="#">
+            <a  routerLink="dashboard" routerLinkActive="active">
                 <i class="bi bi-columns"></i>Dashboard
             </a>
         </div>
@@ -24,8 +24,8 @@
                 data-bs-parent="#sidebar-menu">
                 <div class="accordion-body">
                     <div class="list-group list-group-flush">
-                        <a href="#" class="list-group-item list-group-item-action"><i class="bi bi-map-fill"></i>Map</a>
-                        <a href="#" class="list-group-item list-group-item-action"><i class="bi bi-broadcast"></i>Tracking</a>
+                        <a  routerLink="map" routerLinkActive="active" class="list-group-item list-group-item-action"><i class="bi bi-map-fill"></i>Map</a>
+                        <a  routerLink="tracking" routerLinkActive="active" class="list-group-item list-group-item-action"><i class="bi bi-broadcast"></i>Tracking</a>
                     </div>
                 </div>
             </div>
@@ -41,9 +41,9 @@
                 data-bs-parent="#sidebar-menu">
                 <div class="accordion-body">
                     <div class="list-group list-group-flush">
-                        <a href="#" class="list-group-item list-group-item-action"><i class="bi bi-card-heading"></i>POI</a>
-                        <a href="#" class="list-group-item list-group-item-action"><i class="bi bi-file-break-fill"></i>Breakdown</a>
-                        <a href="#" class="list-group-item list-group-item-action"><i class="bi bi-lightning-charge-fill"></i>Recharge</a>
+                        <a routerLink="poi" routerLinkActive="active" class="list-group-item list-group-item-action"><i class="bi bi-card-heading"></i>POI</a>
+                        <a routerLink="breakDown" routerLinkActive="active" class="list-group-item list-group-item-action"><i class="bi bi-file-break-fill"></i>Breakdown</a>
+                        <a routerLink="recharge" routerLinkActive="active" class="list-group-item list-group-item-action"><i class="bi bi-lightning-charge-fill"></i>Recharge</a>
                     </div>
                 </div>
             </div>
@@ -68,11 +68,11 @@
                           <div id="collapseThreeOne" class="accordion-collapse collapse" aria-labelledby="headingThreeOne" data-bs-parent="#sidemenu-subitem">
                             <div class="accordion-body">
                                 <div class="list-group list-group-flush">
-                                    <a href="#" class="list-group-item list-group-item-action">Summary</a>
-                                    <a href="#" class="list-group-item list-group-item-action">Speed Range</a>
-                                    <a href="#" class="list-group-item list-group-item-action">Trip</a>
-                                    <a href="#" class="list-group-item list-group-item-action">Address</a>
-                                    <a href="#" class="list-group-item list-group-item-action">OverSpeed</a>
+                                    <a routerLink="summary" routerLinkActive="active" class="list-group-item list-group-item-action">Summary</a>
+                                    <a routerLink="speedRange" routerLinkActive="active" class="list-group-item list-group-item-action">Speed Range</a>
+                                    <a routerLink="trip" routerLinkActive="active" class="list-group-item list-group-item-action">Trip</a>
+                                    <a routerLink="address" routerLinkActive="active" class="list-group-item list-group-item-action">Address</a>
+                                    <a routerLink="overspeed" routerLinkActive="active" class="list-group-item list-group-item-action">OverSpeed</a>
                                 </div>
                             </div>
                           </div>
@@ -86,8 +86,8 @@
                           <div id="collapseThreeTwo" class="accordion-collapse collapse" aria-labelledby="headingThreeTwo" data-bs-parent="#sidemenu-subitem">
                             <div class="accordion-body">
                                 <div class="list-group list-group-flush">
-                                    <a routerLink="invoice" class="list-group-item list-group-item-action">Invoice</a>
-                                    <a routerLink="materialOrder" class="list-group-item list-group-item-action">Material Order</a>
+                                    <a routerLink="invoice"  routerLinkActive="active" class="list-group-item list-group-item-action">Invoice</a>
+                                    <a routerLink="materialOrder"  routerLinkActive="active" class="list-group-item list-group-item-action">Material Order</a>
                                 </div>
                             </div>
                           </div>
