@@ -1,3 +1,4 @@
+@import url("../node_modules/@angular/material/prebuilt-themes/indigo-pink.css");
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
@@ -460,3 +461,109 @@ footer {
         }
     }
 }
+
+.btn-group-vertical a{
+    font-size: 16px;
+    color: #343a40!important;
+}
+
+.btn-group-vertical {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.btn-group, .btn-group-vertical {
+    position: relative;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    vertical-align: middle;
+}
+.btn-group-vertical a{
+    text-decoration: none;
+}
+
+.filter {
+    /* padding: 0 10px; */
+    color: #495057;
+    border: 1px solid #ced4da;
+}
+
+ ::placeholder {
+    font-size: 14px;
+}
+
+.modal-close-btn {
+    text-align: right;
+    margin-top: -26px;
+    margin-right: -19px !important;
+    display: block;
+    border-radius: 5px;
+    color: #3c4858;
+    font-size: 33px;
+    line-height: 1.2;
+    cursor: pointer;
+}
+
+.filter {
+    background: #f8f9fc!important;
+}
+
+.filter:focus {
+    border: 1px solid #ced4da !important;
+}
+
+ /* table css start here  */
+        
+ .mat-cell,
+ .mat-footer-cell {
+     font-size: 12px;
+ }
+ 
+ .mat-form-field {
+     width: 100%;
+ }
+ 
+ .mat-row:last-child {
+     border-bottom: none!important;
+ }
+ 
+ mat-table {
+     margin-top: 15px;
+ }
+ 
+ .mat-header-row {
+     min-height: 40px;
+ }
+ 
+ .filter {
+     background: #f8f9fc!important;
+ }
+ 
+ .mat-header-row {
+     background: #f8f9fc;
+     border-top: solid 1px rgba(0, 0, 0, .12);
+ }
+ 
+ .dropdown-menu .list-group-item {
+     border-bottom: 1px solid rgba(0, 0, 0, .125);
+ }
+ 
+ .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+     border-color: #37597d;
+ }
+ .mat-radio-button.mat-accent .mat-radio-inner-circle, .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple), .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple, .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
+     background-color: #37597d;
+ }
+ .dropdown-menu {
+     border-radius: 0px;
+ }
+ /* table css end here  */

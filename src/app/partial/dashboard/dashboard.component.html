@@ -9,7 +9,7 @@
       <div class="card-body pb-0">
         <div class="media d-flex align-items-start">
           <div class="media-body">
-            <h2 class="dash-count">22</h2>
+            <h2 class="dash-count">{{resVehiclesCountDashboard?.responseData?.overSpeedVehicles}}</h2>
             <p class="dash-unit">Alerts</p>
             <p class="dash-descri">Speed more than set limit</p>
             <p class="dash-head">Overspeed</p>
@@ -24,7 +24,7 @@
       <div class="card-body pb-0">
         <div class="media d-flex align-items-start">
           <div class="media-body">
-            <h2 class="dash-count">10</h2>
+            <h2 class="dash-count">{{resVehiclesCountDashboard?.responseData?.fuelDropVehicles}}</h2>
             <p class="dash-unit">Alerts</p>
             <p class="dash-descri">Lorem ipsum Lorem ipsum </p>
             <p class="dash-head">Fuel Drop</p>
@@ -35,11 +35,14 @@
     </div>
   </div>
   <div class="col-md-3">
-    <div class="card mb-4 card-cyan">
+    <div class="card mb-4 card-cyan"  (click)="openDialogBreakdown()">
       <div class="card-body pb-0">
         <div class="media d-flex align-items-start">
           <div class="media-body">
-            <h2 class="dash-count">32</h2>
+            <h2 class="dash-count">
+              <ng-container *ngIf="this.resBreakdownReport!= null;">{{resBreakdownReport?.length}}</ng-container>
+              <ng-container *ngIf="this.resBreakdownReport == null">0</ng-container>
+            </h2>
             <p class="dash-unit">Vehicles</p>
             <p class="dash-descri">Required additional validity</p>
             <p class="dash-head">Breakdown</p>
@@ -54,7 +57,7 @@
       <div class="card-body pb-0">
         <div class="media d-flex align-items-start">
           <div class="media-body">
-            <h2 class="dash-count">00</h2>
+            <h2 class="dash-count">{{resVehiclesCountDashboard?.responseData?.poiVehicles}}</h2>
             <p class="dash-unit">Alerts</p>
             <p class="dash-descri">In/Out of prohibited Geo-fence</p>
             <p class="dash-head">POl Alert</p>
@@ -71,8 +74,27 @@
       <div class="card-header">
         Fleet Status
       </div>
-      <div class="card-body">
-        
+        <div class="card-body" style="height:312px;">
+          <div class="row">
+              <div class="col-md-8">
+                  <p *ngIf="piChartMsg" class="text-danger">No Fleet status</p>
+                  <div id="chartdiv" style="height:272px;margin-top:-15px;"></div>
+
+              </div>
+              <div class="col-md-4 d-flex align-items-center">
+                  <div class="btn-group btn-group-vertical">
+                  <a class="lead1 mb-3" *ngIf="runningVehicles != 0" (click)="redirectMap('Running')"><i
+                              class="fas mr-2  fa-circle mr-2" style="color:#43a047"></i> Running
+                          ({{runningVehicles}})</a>
+                  <a class="lead1 mb-3" *ngIf="offlineVehicles != 0" (click)="redirectMap('Offline')"><i
+                              class="fas mr-2  fa-circle mr-2" style="color:#fb8c00"></i> Offline
+                          ({{offlineVehicles}})</a>
+                  <a class="lead1 mb-3" *ngIf="stopVehicles != 0" (click)="redirectMap('Stopped')"><i
+                              class="fas mr-2  fa-circle mr-2" style="color:#e53935"></i> Stopped
+                          ({{stopVehicles}})</a>
+                      </div>
+              </div>
+          </div>
       </div>
     </div>
   </div>
@@ -80,46 +102,29 @@
     <div class="row">
       <div class="col-md-6">
         <div class="card shadow-sm">
-          <div class="card-body">
-            <h2 class="text-primary">10</h2>
+          <div class="card-body"  (click)="openDialogeTPDetails()">
+            <h2 class="text-primary"> {{resInvoiceDetails?.length}}</h2>
             <img src="../../assets/images/E-TPDetails.svg" class="img-fluid">
             <h6>Number of Transport Permit Generated</h6>
             <p class="dash-label">E-TP Details <small>(active/ ongoing)</small></p>
             <div class="card-table">
               <table class="table table-borderless mb-0">
-                <thead class="table-light">
-                  <tr>
-                    <th scope="col">Sr.</th>
-                    <th scope="col">Invoice No</th>
-                  </tr>
+                <thead  class="table-light">
+                    <tr>
+                        <th scope="col">Sr.</th>
+                        <th scope="col">eTP</th>
+                    </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td scope="row">01</td>
-                    <td>12830633</td>
-                  </tr>
-                  <tr>
-                    <td scope="row">02</td>
-                    <td>12830633</td>
-                  </tr>
-                  <tr>
-                    <td scope="row">03</td>
-                    <td>12830633</td>
-                  </tr>
-                  <tr>
-                    <td scope="row">01</td>
-                    <td>12830633</td>
-                  </tr>
-                  <tr>
-                    <td scope="row">02</td>
-                    <td>12830633</td>
-                  </tr>
-                  <tr>
-                    <td scope="row">03</td>
-                    <td>12830633</td>
-                  </tr>
+                    <tr *ngFor="let eTPDetails of resInvoiceDetails; let i = index">
+                        <th>{{i+1}}</th>
+                        <td>{{eTPDetails?.invoiceNo}}</td>
+                    </tr>
+                    <tr *ngIf="resInvoiceDetails === null">
+                        <td colspan="2" class="text-danger">No eTP Details</td>
+                    </tr>
                 </tbody>
-              </table>
+            </table>
             </div>
           </div>
         </div>
@@ -134,12 +139,12 @@
               <div class="col-6 border-end text-center">
                 <img src="../../assets/images/Due.svg" class="img-fluid">
                 <h6>Due</h6>
-                <h2 class="text-info">32</h2>
+                <h2 class="text-info">{{resSimDueAndOverDue?.responseData[0]?.due}}</h2>
               </div>
               <div class="col-6 text-center">
                 <img src="../../assets/images/Overdue.svg" class="img-fluid">
                 <h6>Overdue</h6>
-                <h2 class="text-danger">25</h2>
+                <h2 class="text-danger">{{resSimDueAndOverDue?.responseData[0]?.overDue}}</h2>
               </div>
             </div>
           </div>
@@ -153,12 +158,12 @@
               <div class="col-6 border-end text-center">
                 <img src="../../assets/images/Received.svg" class="img-fluid">
                 <h6>Received</h6>
-                <h2 class="text-success">32</h2>
+                <h2 class="text-success">{{resComplaintDetails?.responseData[0]?.received}}</h2>
               </div>
               <div class="col-6 text-center">
                 <img src="../../assets/images/Pending.svg" class="img-fluid">
                 <h6>Pending</h6>
-                <h2 class="text-primary">25</h2>
+                <h2 class="text-primary">{{resComplaintDetails?.responseData[0]?.pending}}</h2>
               </div>
             </div>
           </div>

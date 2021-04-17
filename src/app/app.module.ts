@@ -12,9 +12,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import {MatInputModule} from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { HttpClientModule } from '@angular/common/http';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     MatInputModule,
     MatIconModule,
-   HttpClientModule
+    HttpClientModule,
+    MatDialogModule,
+    MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent]
