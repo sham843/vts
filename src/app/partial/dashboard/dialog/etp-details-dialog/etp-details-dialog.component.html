@@ -1,0 +1,57 @@
+<div class="pos-rel">
+    <div class="clearfix">
+        <div class="pull-left">
+            <h5>E-TP details details</h5>
+        </div>
+        <div class="pull-right">
+            <input matInput (keyup)="applyFilter($event)" class="form-control filter" placeholder="Search..." #input>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+    <mat-table #table [dataSource]="dataSource" matSort>
+        <!-- id Column -->
+        <ng-container matColumnDef="rownumber">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Sr. </mat-header-cell>
+            <mat-cell *matCellDef="let element; let i = index;"> {{ i + 1 }} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="invoiceNo">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Invoice no. </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.invoiceNo}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="vehicle">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Vehicle no. </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.vehicle}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="driverName">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Driver </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.driverName}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="quantity">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Quantity</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.quantity}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="validityFrom">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>From </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.validityFrom | date :'dd-MM-yyyy'}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="validityUpto">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>To </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.validityUpto | date :'dd-MM-yyyy'}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="destination">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Destination</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.destination}} </mat-cell>
+        </ng-container>
+        <div class="mat-row p-4" *matNoDataRow>
+            <p class="text-danger">No data Found</p>
+        </div>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <div class="text-center">
+        <button mat-raised-button (click)="onNoClick()" >Close</button>
+    </div>
+  
+</div>
+<!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator> -->

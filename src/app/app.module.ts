@@ -12,11 +12,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import {MatInputModule} from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { HttpClientModule } from '@angular/common/http';
+<<<<<<< HEAD
 import { ToastrModule } from 'ngx-toastr';
 import { DatePipe } from '@angular/common';
+=======
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSortModule } from '@angular/material/sort';
+>>>>>>> master
 
 @NgModule({
   declarations: [
@@ -37,6 +42,7 @@ import { DatePipe } from '@angular/common';
     ReactiveFormsModule,
     MatInputModule,
     MatIconModule,
+<<<<<<< HEAD
    HttpClientModule,
    ToastrModule.forRoot({
     closeButton: true,
@@ -44,6 +50,11 @@ import { DatePipe } from '@angular/common';
   }),
 
 
+=======
+    HttpClientModule,
+    MatDialogModule,
+    MatSortModule
+>>>>>>> master
   ],
   providers: [DatePipe,],
   bootstrap: [AppComponent]

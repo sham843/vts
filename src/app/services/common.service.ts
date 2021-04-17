@@ -81,10 +81,17 @@ export class CommonService {
     return usermobileNo.mobileNo1
   }
 
+<<<<<<< HEAD
   modalClose() {
     let element: any = document.getElementsByClassName('btn-close')[0];
     element.click();
   }
+=======
+  // modalClose(){
+  //   let element:any =  document.getElementsByClassName('btn-close')[0];
+  //   element.click();
+  // }
+>>>>>>> master
 
 
   getHttp(): any {

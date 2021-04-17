@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   data: any;
   toggle: boolean = false;
   hide = true;
+  showLogin: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -59,7 +60,7 @@ export class LoginComponent implements OnInit {
       this._callAPIService.callAPI('get', 'vehicle-tracking/login/login-web?' + 'UserName=' + this.data.username + '&Password=' + this.data.password, false, false, false, 'vehicleTrackingBaseUrlApi');
       this._callAPIService.getResponse().subscribe((res: any) => {
         if (res.statusCode === "200") {
-         this._commonService.modalClose();
+        //  this._commonService.modalClose();
           localStorage.setItem('loggedInDetails', JSON.stringify(res));
           this.router.navigate(['../dashboard'], { relativeTo: this.route })
           this._snackBar.open(res.statusMessage, "Close", {
