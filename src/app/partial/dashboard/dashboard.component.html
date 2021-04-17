@@ -42,22 +42,13 @@
 
 
   <div class="col-md-3">
-<<<<<<< HEAD
-    <div class="card mb-4 card-cyan" data-toggle="modal" data-target="#breakdownModal">
-=======
     <div class="card mb-4 card-cyan"  (click)="openDialogBreakdown()">
->>>>>>> master
       <div class="card-body pb-0">
         <div class="media d-flex align-items-start">
           <div class="media-body">
             <h2 class="dash-count">
-<<<<<<< HEAD
-              <span *ngIf="this.resBreakdownReport!= null;">{{resBreakdownReport?.length}}</span>
-              <span *ngIf="this.resBreakdownReport == null">0</span>
-=======
               <ng-container *ngIf="this.resBreakdownReport!= null;">{{resBreakdownReport?.length}}</ng-container>
               <ng-container *ngIf="this.resBreakdownReport == null">0</ng-container>
->>>>>>> master
             </h2>
             <p class="dash-unit">Vehicles</p>
             <p class="dash-descri">Required additional validity</p>
@@ -93,10 +84,6 @@
       <div class="card-header">
         Fleet Status
       </div>
-<<<<<<< HEAD
-      <div class="card-body">
-
-=======
         <div class="card-body" style="height:312px;">
           <div class="row">
               <div class="col-md-8">
@@ -118,7 +105,6 @@
                       </div>
               </div>
           </div>
->>>>>>> master
       </div>
     </div>
   </div>
@@ -129,15 +115,9 @@
 
 
       <div class="col-md-6">
-<<<<<<< HEAD
-        <div class="card shadow-sm" data-toggle="modal" data-target="#eTPDetailsModal">
-          <div class="card-body">
-            <h2 class="text-primary">10</h2>
-=======
         <div class="card shadow-sm">
           <div class="card-body"  (click)="openDialogeTPDetails()">
             <h2 class="text-primary"> {{resInvoiceDetails?.length}}</h2>
->>>>>>> master
             <img src="../../assets/images/E-TPDetails.svg" class="img-fluid">
             <h6>Number of Transport Permit Generated</h6>
             <p class="dash-label">E-TP Details <small>(active/ ongoing)</small></p>

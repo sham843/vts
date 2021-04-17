@@ -15,13 +15,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatInputModule } from '@angular/material/input';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { HttpClientModule } from '@angular/common/http';
-<<<<<<< HEAD
-import { ToastrModule } from 'ngx-toastr';
-import { DatePipe } from '@angular/common';
-=======
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSortModule } from '@angular/material/sort';
->>>>>>> master
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -42,19 +38,9 @@ import { MatSortModule } from '@angular/material/sort';
     ReactiveFormsModule,
     MatInputModule,
     MatIconModule,
-<<<<<<< HEAD
-   HttpClientModule,
-   ToastrModule.forRoot({
-    closeButton: true,
-    progressBar:true
-  }),
-
-
-=======
     HttpClientModule,
     MatDialogModule,
     MatSortModule
->>>>>>> master
   ],
   providers: [DatePipe,],
   bootstrap: [AppComponent]
