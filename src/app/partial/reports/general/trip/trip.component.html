@@ -1,1 +1,129 @@
-<p>trip works!</p>
+<div id="report-container">
+    <div class="row m-0">
+        <div class="col-sm-3" id="report-forms">
+            <div class="card card-body border-0">
+                <div class="mb-3">
+                    <label for="ddlVehicleNo" class="form-label">Vehicle No.</label>
+                    <select class="form-select" id="ddlVehicleNo">
+                        <option value="">Select Vehicle No</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="txtFromDate" class="form-label">Report Type</label>
+                    <div class="">
+                        <div class="form-check form-check-inline me-2">
+                            <input class="form-check-input" type="radio" name="ReportType" id="Trip" value="Trip" checked>
+                            <label class="form-check-label" for="Trip">
+                                Trip
+                            </label>
+                          </div>
+                        <div class="form-check form-check-inline me-2">
+                            <input class="form-check-input" type="radio" name="ReportType" id="24hr" value="24hr">
+                            <label class="form-check-label" for="24hr">
+                                24hr
+                            </label>
+                          </div>
+                        <div class="form-check form-check-inline me-2">
+                            <input class="form-check-input" type="radio" name="ReportType" id="Weekly" value="Weekly">
+                            <label class="form-check-label" for="Weekly">
+                                Weekly
+                            </label>
+                          </div>
+                    </div>
+                    
+                </div>
+                <div class="mb-3">
+                    <label for="txtFromDate" class="form-label">From Date</label>
+                    <input type="datetime-local" class="form-control" id="txtFromDate">
+                </div>
+                <div class="mb-3">
+                    <label for="txtToDate" class="form-label">To Date</label>
+                    <input type="datetime-local" class="form-control" id="txtToDate">
+                </div>
+                <div class="d-grid gap-2 d-md-block">
+                    <button type="reset" class="btn btn-primary me-2">Refresh</button>
+                    <button type="submit" class="btn btn-success">Search</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-9" id="report-content">
+            <div class="row"  id="report-header">
+                <div class="col-sm-6">
+                    <h5>Trip Report</h5>
+                </div>
+                <div class="col-sm-6 text-end">
+                    <span class="me-3">Current Date</span>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-outline-primary btn-sm dropdown-toggle"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-cloud-arrow-down-fill me-2"></i>Download
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><button class="dropdown-item" type="button"><i
+                                        class="bi bi-file-earmark-font-fill me-2"></i> PDF</button></li>
+                            <li><button class="dropdown-item" type="button"><i
+                                        class="bi bi-file-earmark-excel-fill me-2"></i> Excel</button></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="w-100"><hr></div>
+                <div class="col-sm-6 report-info">
+                    Vehicle : <span class="text-primary">MH40BG6640</span>
+                </div>
+                <div class="col-sm-6 text-end report-info">
+                    Date : <span class="text-primary">04/11/2020 11:46 AM to 05/11/2020 11:46 AM</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <table class="table align-middle">
+                        <thead>
+                            <tr>
+                                <th>Sr.</th>
+                                <th>Distance</th>
+                                <th>Duration</th>
+                                <th>Start date</th>
+                                <th>Start address</th>
+                                <th>End date</th>
+                                <th>End address</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>01</td>
+                                <td>5.29Km</td>
+                                <td>00:15hh:mm</td>
+                                <td>05-11-2020 12:00AM</td>
+                                <td>Unknown location</td>
+                                <td>05-11-2020 12:00AM  </td>
+                                <td>Unknown location</td>
+                            </tr>
+                            <tr>
+                                <td>02</td>
+                                <td>5.29Km</td>
+                                <td>00:15hh:mm</td>
+                                <td>05-11-2020 12:00AM</td>
+                                <td>Unknown location</td>
+                                <td>05-11-2020 12:00AM  </td>
+                                <td>Unknown location</td>
+                            </tr>
+                            <tr>
+                                <td>03</td>
+                                <td>22.84Km</td>
+                                <td>00:15hh:mm</td>
+                                <td>05-11-2020 12:00AM</td>
+                                <td>Unknown location</td>
+                                <td>05-11-2020 12:00AM  </td>
+                                <td>Unknown location</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,1 +1,96 @@
-<p>address works!</p>
+<div id="report-container">
+    <div class="row m-0">
+        <div class="col-sm-3" id="report-forms">
+            <div class="card card-body border-0">
+                <div class="mb-3">
+                    <label for="ddlVehicleNo" class="form-label">Vehicle No.</label>
+                    <select class="form-select" id="ddlVehicleNo">
+                        <option value="">Select Vehicle No</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="txtFromDate" class="form-label">From Date</label>
+                    <input type="datetime-local" class="form-control" id="txtFromDate">
+                </div>
+                <div class="mb-3">
+                    <label for="txtToDate" class="form-label">To Date</label>
+                    <input type="datetime-local" class="form-control" id="txtToDate">
+                </div>
+                <div class="d-grid gap-2 d-md-block">
+                    <button type="reset" class="btn btn-primary me-2">Refresh</button>
+                    <button type="submit" class="btn btn-success">Search</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-9" id="report-content">
+            <div class="row"  id="report-header">
+                <div class="col-sm-6">
+                    <h5>Address Report</h5>
+                </div>
+                <div class="col-sm-6 text-end">
+                    <span class="me-3">Current Date</span>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-outline-primary btn-sm dropdown-toggle"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-cloud-arrow-down-fill me-2"></i>Download
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><button class="dropdown-item" type="button"><i
+                                        class="bi bi-file-earmark-font-fill me-2"></i> PDF</button></li>
+                            <li><button class="dropdown-item" type="button"><i
+                                        class="bi bi-file-earmark-excel-fill me-2"></i> Excel</button></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="w-100"><hr></div>
+                <div class="col-sm-6 report-info">
+                    Vehicle : <span class="text-primary">MH40BL0827 (Tractor)</span>
+                </div>
+                <div class="col-sm-6 text-end report-info">
+                    Date : <span class="text-primary">05/11/2020 01:14 PM to 05/11/2020 02:14 PM</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <table class="table align-middle">
+                        <thead>
+                            <tr>
+                                <th>Sr.</th>
+                                <th>Date</th>
+                                <th>Address</th>
+                               
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>01</td>
+                                <td>05-11-2020 12:00AM</td>
+                                <td>NH 361, Maharashtra 441122, India</td>
+                            </tr>
+                            <tr>
+                                <td>02</td>
+                                <td>05-11-2020 12:00AM</td>
+                                <td>NH 361, Maharashtra 441122, India</td>
+                            </tr>
+                            <tr>
+                                <td>03</td>
+                                <td>05-11-2020 12:00AM</td>
+                                <td>NH 361, Maharashtra 441122, India</td>
+                            </tr>
+                            <tr>
+                                <td>04</td>
+                                <td>05-11-2020 12:00AM</td>
+                                <td>NH 361, Maharashtra 441122, India</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
