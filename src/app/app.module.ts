@@ -17,7 +17,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { HttpClientModule } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSortModule } from '@angular/material/sort';
-
+import { AgmCoreModule } from '@agm/core';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +39,12 @@ import { MatSortModule } from '@angular/material/sort';
     MatIconModule,
     HttpClientModule,
     MatDialogModule,
-    MatSortModule
+    MatSortModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAV0MsCXcScyVTpfgelNpIakmESv9W0E3c',
+      language: 'en',
+      libraries: ['geometry', 'places']
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
