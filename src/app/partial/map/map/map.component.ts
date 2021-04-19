@@ -10,6 +10,7 @@ export class MapComponent implements OnInit {
   lat = 51.678418;
   long = 7.809007;
   googleMapType = 'satellite';
+  showMapInfo: boolean = false;
   constructor() { }
 
   ngOnInit(): void {
