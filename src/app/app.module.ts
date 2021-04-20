@@ -18,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSortModule } from '@angular/material/sort';
 import { AgmCoreModule } from '@agm/core';
+import {MatButtonModule} from '@angular/material/button';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +41,7 @@ import { AgmCoreModule } from '@agm/core';
     HttpClientModule,
     MatDialogModule,
     MatSortModule,
+    MatButtonModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAV0MsCXcScyVTpfgelNpIakmESv9W0E3c',
       language: 'en',

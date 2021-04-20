@@ -3,39 +3,83 @@
 
 <div id="report-container">
   <div class="card card-body border-0" style="max-width: 250px;">
-    <div class="mb-3">
-      <label for="ddlVehicleNo" class="form-label">Vehicle No.</label>
+    <div class="mb-2">
+      <label for="ddlVehicleNo" class="form-label mb-0">Vehicle No.</label>
       <select class="form-select" id="ddlVehicleNo">
         <option value="">Select Vehicle No</option>
       </select>
     </div>
-    <div class="mb-3">
-      <label for="txtFromDate" class="form-label">From Date</label>
+    <div class="mb-2">
+      <label for="txtFromDate" class="form-label mb-0">From Date</label>
       <input type="datetime-local" class="form-control" id="txtFromDate">
     </div>
-    <div class="mb-3">
-      <label for="txtToDate" class="form-label">To Date</label>
+    <div class="mb-2">
+      <label for="txtToDate" class="form-label mb-0">To Date</label>
       <input type="datetime-local" class="form-control" id="txtToDate">
     </div>
     <div class="d-grid gap-2 d-md-block">
-      <button type="reset" class="btn btn-primary me-2">Refresh</button>
-      <button type="submit" class="btn btn-success">Search</button>
+      <button type="reset" class="btn btn-primary me-2 btn-sm">Refresh</button>
+      <button type="submit" class="btn btn-success btn-sm">Search</button>
     </div>
   </div>
   <div class="map-right position-absolute  " style="right: 10px; top:15%">
-    <p class="text-end">
-      <button type="button" class="btn btn-light text-primary me-2"><i class="bi bi-list"></i></button>
-      <button type="button" class="btn btn-light text-primary"><i class="bi bi-plus-circle"></i></button>
-    </p>
-    <p class="text-end">
-      <button type="button" class="btn btn-light text-primary"><i class="bi bi-images"></i></button>
-    </p>
-    <p class="text-end">
+    <div class="text-end">
+      <div *ngIf="showtrackmenu" class="d-inline-block bg-light me-1 rounded shadow" role="group"
+        aria-label="Basic example">
+        <div class="btn-group me-2" role="group" aria-label="Basic example">
+          <button type="button" class="btn btn-outline-primary"><i class="bi bi-play"></i></button>
+          <button type="button" class="btn btn-outline-primary"><i class="bi bi-pause-fill"></i></button>
+          <button type="button" class="btn btn-outline-primary"><i class="bi bi-arrow-repeat"></i></button>
+        </div>
+        <div class="d-inline-flex me-2">
+          <label for="customRange1" class="form-label me-2">Speed</label>
+          <input type="range" class="form-range" id="customRange1">
+        </div>
+        <div class="d-inline-flex me-2">
+          <label for="customRange1" class="form-label me-2">Progress</label>
+          <input type="range" class="form-range" id="customRange1">
+        </div>
+      </div>
+      <button type="button" class="btn btn-light text-primary me-2" (click)="showtrackmenu=!showtrackmenu"><i
+          class="bi bi-list"></i></button>
+       
+          <div *ngIf="showmarkpos" class="d-inline-block bg-light pt-2 ps-2 me-1 rounded shadow" role="group" aria-label="Basic example">
+            <div class="form-check form-check-inline ">
+              <input class="form-check-input" type="radio" name="posCenter" id="Center" value="Center" checked>
+              <label class="form-check-label" for="Center"> Center  </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="posCenter" id="fit" value="fit">
+              <label class="form-check-label" for="fit"> fit  </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="posCenter" id="Move" value="Move">
+              <label class="form-check-label" for="Move"> Move  </label>
+            </div>
+          </div>
+      <button type="button" class="btn btn-light text-primary" title="Marker Position"  (click)="showmarkpos=!showmarkpos"><i class="bi bi-plus-circle"></i></button>
+    </div>
+    <div class="text-end">
+      <div  *ngIf="showmaptype" class="d-inline-block  bg-light pt-2 ps-2 me-1 rounded shadow" role="group" aria-label="Basic example">
+        <div class="form-check form-check-inline ">
+          <input class="form-check-input" type="radio" name="maptype" id="Roadmap" value="Roadmap" checked>
+          <label class="form-check-label" for="Roadmap"> Roadmap  </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="maptype" id="Hybrid" value="Hybrid">
+          <label class="form-check-label" for="Hybrid"> Hybrid  </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="maptype" id="Satellite" value="Satellite">
+          <label class="form-check-label" for="Satellite"> Satellite  </label>
+        </div>
+      </div>
+      <button type="button" class="btn btn-light text-primary" title="maptype"  (click)="showmaptype=!showmaptype"><i class="bi bi-images"></i></button>
+    </div>
+    <div class="text-end">
       <button type="button" class="btn btn-light text-primary"><i class="bi bi-stoplights-fill"></i></button>
-    </p>
+    </div>
   </div>
-
-
 </div>
 
 

@@ -10,6 +10,9 @@ export class TrackingComponent implements OnInit {
   lat = 51.678418;
   long = 7.809007;
   googleMapType = 'satellite';
+  showtrackmenu: boolean = false;
+  showmarkpos: boolean = false;
+  showmaptype: boolean = false;
   constructor() { }
 
   ngOnInit(): void {
