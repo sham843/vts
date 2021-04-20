@@ -2,27 +2,35 @@
   <div class="row m-0">
     <div class="col-sm-3" id="report-forms">
       <div class="card card-body border-0">
-        <div class="mb-3">
-          <label for="ddlVehicleNo" class="form-label">Vehicle No.</label>
-          <select class="form-select" id="ddlVehicleNo">
-            <option value="">Select Vehicle No</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label for="txtFromDate" class="form-label">From Date</label>
-          <input type="datetime-local" class="form-control" id="txtFromDate">
-        </div>
-        <div class="mb-3">
-          <label for="txtToDate" class="form-label">To Date</label>
-          <input type="datetime-local" class="form-control" id="txtToDate">
-        </div>
-        <div class="d-grid gap-2 d-md-block">
-          <button type="reset" class="btn btn-primary me-2">Refresh</button>
-          <button type="submit" class="btn btn-success">Search</button>
-        </div>
+        <form [formGroup]="summaryFrom" (ngSubmit)="onSubmit()">
+          <div class="form-group has-feedback">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Select Vehicle</mat-label>
+              <mat-select formControlName="VehicleNumber">
+                <mat-option *ngFor="let vehicleData of vechileList" value="{{vehicleData?.vehicleNo}}">
+                  {{vehicleData?.vehicleNo}}</mat-option>
+              </mat-select>
+              <mat-error *ngIf="submitted && f.VehicleNumber.errors">Vehicle Number is required
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group has-feedback">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>From Date</mat-label>
+              <input matInput  type='datetime-local' autofocus placeholder="User Name" formControlName="fromDate">
+            </mat-form-field>
+          </div>
+          <div class="form-group has-feedback">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>To Date</mat-label>
+              <input matInput  type='datetime-local' [min]="this.summaryFrom.value.fromDate" [max]="maxDate"   autofocus placeholder="User Name" formControlName="toDate">
+            </mat-form-field>
+          </div>
+          <div class="d-grid gap-2 d-md-block">
+            <button type="reset" class="btn btn-primary me-2">Refresh</button>
+            <button type="submit" class="btn btn-success">Search</button>
+          </div>
+        </form>
       </div>
     </div>
     <div class="col-sm-9" id="report-content">
@@ -110,7 +118,7 @@
                 <p class="mb-0"><span class="text-primary">218.91 <small>hh:mm</small> </span></p>
               </div>
             </div>
-            
+
           </div>
           <div class="row">
             <div class="col-md mb-md-2">
