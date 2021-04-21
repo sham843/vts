@@ -17,12 +17,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { HttpClientModule } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSortModule } from '@angular/material/sort';
-<<<<<<< HEAD
-import { DatePipe } from '@angular/common';
-
-=======
 import { AgmCoreModule } from '@agm/core';
->>>>>>> master
+import { DatePipe } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,

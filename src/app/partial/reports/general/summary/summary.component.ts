@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { CallAPIService } from 'src/app/services/call-api.service';
-import { CommonService } from 'src/app/services/common.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { CommonService } from 'src/app/services/common.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { CallAPIService } from 'src/app/services/call-api.service';
+import { ExcelService } from 'src/app/services/excel.service';
+
+
 @Component({
   selector: 'app-summary',
   templateUrl: './summary.component.html',
@@ -30,14 +33,30 @@ export class SummaryComponent implements OnInit {
     private _commonService: CommonService,
     private formBuilder: FormBuilder,
     private spinner: NgxSpinnerService,
+    private _excelService: ExcelService,
   ) { }
 
   ngOnInit(): void {
     this.getVehiclesList();
+    this.customForm();
+  }
+
+  customForm() {
     this.summaryFrom = this.formBuilder.group({
       VehicleNumber: ['', Validators.required],
       fromDate: [this._commonService.fromDate()],
       toDate: [this._commonService.toDate()],
+    });
+  }
+
+  clearForm() {
+    this.hideReport = false;
+    this.select = true;
+    this.submitted = false;
+    this.summaryFrom.reset({
+      VehicleNumber: '',
+      toDate: this._commonService.toDate(),
+      fromDate: this._commonService.fromDate()
     });
   }
 
@@ -49,10 +68,10 @@ export class SummaryComponent implements OnInit {
         this.vechileList = this.vechileList.responseData;
       }
       else if (res.statusCode === "409") {
-        this._snackBar.open(res.statusMessage);
+        this._snackBar.open(res.statusMessage, 'OK');
       }
       else {
-        this._snackBar.open(res.statusMessage);
+        this._snackBar.open(res.statusMessage, 'OK');
       }
     })
   }
@@ -101,5 +120,26 @@ export class SummaryComponent implements OnInit {
         }
       })
     }
+  }
+
+ 
+  downLoadExcel() {
+    let row:any = [];
+    row.push(this.summaryReportData)
+    let keyExcelHeader = ["Driver Name","Dr. MOb. No.","Veh. Type","From Date", "To Date", "Travelled Distance"];
+    let key = ['driverName', 'driverMobileNo', 'vehTypeName', 'fromDate', 'toDate', 'travelledDistance'];
+    this.summaryFrom.value['pageName']="Summary Report";
+    let formDataObj:any  =  this.summaryFrom.value;
+    this._excelService.exportAsExcelFile(keyExcelHeader,key, row, formDataObj);
+  }
+
+  pdfDownload() {
+    let row:any = [];
+    row.push(this.summaryReportData)
+    let keyPDFHeader = ["Driver Name","Dr. MOb. No.","Veh. Type","From Date", "To Date", "Travelled Distance"];
+    let key = ['driverName', 'driverMobileNo', 'vehTypeName', 'fromDate', 'toDate', 'travelledDistance'];
+    this.summaryFrom.value['pageName']="Summary Report";
+    let formDataObj:any  =  this.summaryFrom.value;
+    this._excelService.downLoadPdf(keyPDFHeader,key, row, formDataObj);
   }
 }
