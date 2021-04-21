@@ -18,7 +18,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSortModule } from '@angular/material/sort';
 import { AgmCoreModule } from '@agm/core';
+<<<<<<< HEAD
 import { DatePipe } from '@angular/common';
+=======
+import {MatButtonModule} from '@angular/material/button';
+>>>>>>> master
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +45,10 @@ import { DatePipe } from '@angular/common';
     HttpClientModule,
     MatDialogModule,
     MatSortModule,
+<<<<<<< HEAD
+=======
+    MatButtonModule,
+>>>>>>> master
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAV0MsCXcScyVTpfgelNpIakmESv9W0E3c',
       language: 'en',

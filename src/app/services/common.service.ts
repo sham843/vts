@@ -2,7 +2,10 @@ import { DatePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+<<<<<<< HEAD
 import { Router } from '@angular/router';
+=======
+>>>>>>> master
 import { CallAPIService } from './call-api.service';
 
 @Injectable({
@@ -90,6 +93,7 @@ export class CommonService {
       + ("0" + ((this.date.getDate() - 1))).slice(-2))
       + 'T' + this.date.toTimeString().slice(0, 5);
   }
+<<<<<<< HEAD
 
   toDate(): string {
     return (this.date.getFullYear().toString() + '-'
@@ -98,6 +102,16 @@ export class CommonService {
       + 'T' + this.date.toTimeString().slice(0, 5);
   }
 
+=======
+
+  toDate(): string {
+    return (this.date.getFullYear().toString() + '-'
+      + ("0" + (this.date.getMonth() + 1)).slice(-2) + '-'
+      + ("0" + (this.date.getDate())).slice(-2))
+      + 'T' + this.date.toTimeString().slice(0, 5);
+  }
+
+>>>>>>> master
  
 }
 

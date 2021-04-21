@@ -2,12 +2,18 @@
 </agm-map>
 <div id="report-container">
   <div class="card card-body border-0" style="max-width: 250px;">
+<<<<<<< HEAD
     <div class="mb-3">
       <label for="ddlVehicleNo" class="form-label">Title</label>
+=======
+    <div class="mb-2">
+      <label for="ddlVehicleNo" class="form-label mb-0">Title</label>
+>>>>>>> master
       <select class="form-select" id="ddlVehicleNo">
         <option value="">Enter Title</option>
       </select>
     </div>
+<<<<<<< HEAD
     <div class="mb-3">
       <label for="" class="form-label">Radius</label>
       <input type="text" class="form-control" id="" placeholder="Radius (Meter)">
@@ -18,10 +24,23 @@
     </div>
     <div class="mb-3">
       <label for="" class="form-label">Address</label>
+=======
+    <div class="mb-2">
+      <label for="" class="form-label mb-0">Radius</label>
+      <input type="text" class="form-control" id="" placeholder="Radius (Meter)">
+    </div>
+    <div class="mb-2">
+      <label for="" class="form-label mb-0">Vehicle</label>
+      <textarea class="form-control" placeholder="MH 12 AB 1234" id="" style="height: 80px"></textarea>
+    </div>
+    <div class="mb-2">
+      <label for="" class="form-label mb-0">Address</label>
+>>>>>>> master
       <textarea class="form-control" placeholder="Swargate, Satara Road, Pune, 411037" id=""
         style="height: 60px"></textarea>
     </div>
     <div class="d-grid gap-2 d-md-block">
+<<<<<<< HEAD
       <button type="reset" class="btn btn-primary me-2">Refresh</button>
       <button type="submit" class="btn btn-success">Search</button>
     </div>
@@ -29,6 +48,26 @@
         
           <button type="button" class="btn btn-light d-flex"> Map <i class="bi bi-chevron-down ms-3"></i></button>
         
+=======
+      <button type="reset" class="btn btn-primary me-2 btn-sm">Refresh</button>
+      <button type="submit" class="btn btn-success btn-sm">Search</button>
+      
+    </div>
+    <div class="map-right position-absolute" style="left: calc(100% + 10px); top: 0;">
+        
+          <!-- <button type="button" class="btn btn-light d-flex"> Map <i class="bi bi-chevron-down ms-3"></i></button> -->
+          <select class="form-select" aria-label="Default select example">
+            <option selected>Map</option>
+            <option value="1">Satelite</option>
+          </select>
+          <div class="mt-1 p-2 ps-4 form-check bg-light">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault"> Labels</label>
+          </div>
+      </div>
+      <div class="map-search ">
+        <button mat-raised-button (click)="openDialog()"><i class="bi bi-search"></i></button>
+>>>>>>> master
       </div>
   </div>
   
