@@ -11,11 +11,8 @@ export class MapComponent implements OnInit {
   long = 7.809007;
   googleMapType = 'satellite';
   showMapInfo: boolean = false;
-<<<<<<< HEAD
-=======
   showmaptype: boolean = false;
   showmarkpos: boolean = false;
->>>>>>> master
   constructor() { }
 
   ngOnInit(): void {

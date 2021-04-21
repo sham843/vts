@@ -5,14 +5,8 @@
         <form [formGroup]="summaryFrom" (ngSubmit)="onSubmit()">
           <div class="form-group has-feedback">
             <mat-form-field class="example-full-width" appearance="fill">
-<<<<<<< HEAD
-              <mat-label>Select Vehicle <span class="text-danger">*</span></mat-label>
-              <mat-select formControlName="VehicleNumber">
-                <mat-option disabled="disabled">Vehicle List</mat-option>
-=======
               <mat-label>Select Vehicle</mat-label>
               <mat-select formControlName="VehicleNumber">
->>>>>>> master
                 <mat-option *ngFor="let vehicleData of vechileList" value="{{vehicleData?.vehicleNo}}">
                   {{vehicleData?.vehicleNo}}</mat-option>
               </mat-select>
@@ -34,13 +28,8 @@
             </mat-form-field>
           </div>
           <div class="d-grid gap-2 d-md-block">
-<<<<<<< HEAD
-            <button type="submit" class="btn btn-success me-2">Search</button>
-            <button type="button" (click)="clearForm()" class="btn btn-primary ">Refresh</button>
-=======
             <button type="reset" class="btn btn-primary me-2">Refresh</button>
             <button type="submit" class="btn btn-success">Search</button>
->>>>>>> master
           </div>
         </form>
       </div>
@@ -50,24 +39,6 @@
         <div class="row" id="report-header">
           <div class="col-sm-6">
             <h5>Summary Report</h5>
-<<<<<<< HEAD
-          </div>
-          <div class="col-sm-6 text-end">
-            <span class="me-3">{{date | date:'dd-MM-yyyy hh:mm:ss a'}}</span>
-            <div class="btn-group">
-              <button type="button" class="btn btn-outline-primary btn-sm dropdown-toggle" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                <i class="bi bi-cloud-arrow-down-fill me-2"></i>Download
-              </button>
-              <ul class="dropdown-menu dropdown-menu-end">
-                <li><button class="dropdown-item" type="button" (click)="pdfDownload()"><i
-                            class="bi bi-file-earmark-font-fill me-2"></i> PDF</button></li>
-                <li><button class="dropdown-item" type="button" (click)="downLoadExcel()"><i
-                            class="bi bi-file-earmark-excel-fill me-2"></i> Excel</button></li>
-            </ul>
-            </div>
-          </div>
-=======
           </div>
           <div class="col-sm-6 text-end">
             <span class="me-3">Current Date</span>
@@ -84,7 +55,6 @@
               </ul>
             </div>
           </div>
->>>>>>> master
           <div class="w-100">
             <hr>
           </div>
