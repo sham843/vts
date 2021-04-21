@@ -1,12 +1,18 @@
 import { Injectable } from '@angular/core';
+<<<<<<< HEAD
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
+=======
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { CallAPIService } from './call-api.service';
+>>>>>>> master
 
 @Injectable({
   providedIn: 'root'
 })
 export class CommonService {
+  date: any = new Date();
 
   UserLoginDetails!: { userID: any; userType: string; };
   // baseurlObj={
@@ -81,11 +87,21 @@ export class CommonService {
     return usermobileNo.mobileNo1
   }
 
-  // modalClose(){
-  //   let element:any =  document.getElementsByClassName('btn-close')[0];
-  //   element.click();
-  // }
+  fromDate(): string {
+    return (this.date.getFullYear().toString() + '-'
+      + ("0" + (this.date.getMonth() + 1)).slice(-2) + '-'
+      + ("0" + ((this.date.getDate() - 1))).slice(-2))
+      + 'T' + this.date.toTimeString().slice(0, 5);
+  }
 
+  toDate(): string {
+    return (this.date.getFullYear().toString() + '-'
+      + ("0" + (this.date.getMonth() + 1)).slice(-2) + '-'
+      + ("0" + (this.date.getDate())).slice(-2))
+      + 'T' + this.date.toTimeString().slice(0, 5);
+  }
+
+<<<<<<< HEAD
 
   getHttp(): any {
     let temp: any = undefined;
@@ -166,5 +182,8 @@ export class CommonService {
   // }
 
 
+=======
+ 
+>>>>>>> master
 }
 

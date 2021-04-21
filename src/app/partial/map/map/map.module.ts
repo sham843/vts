@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { MapRoutingModule } from './map-routing.module';
 import { MapComponent } from './map.component';
+import { AgmCoreModule } from '@agm/core';
 
 
 @NgModule({
@@ -11,7 +11,8 @@ import { MapComponent } from './map.component';
   ],
   imports: [
     CommonModule,
-    MapRoutingModule
+    MapRoutingModule,
+    AgmCoreModule
   ]
 })
 export class MapModule { }

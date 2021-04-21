@@ -196,9 +196,11 @@ footer {
     color: #000;
     font-weight: 500;
 }
-.app-btn-outer{
+
+.app-btn-outer {
     margin-top: -100px;
 }
+
 .btn-Apps {
     // background-color: #ececec;
     text-decoration: none;
@@ -243,13 +245,11 @@ footer {
 //     border-top: solid 1px #eee;
 //     background: #fff;
 // }
-
 .bottom-patch {
     position: absolute;
     right: 0;
     bottom: 0;
 }
-
 
 #LoginModal {
     .modal-dialog {
@@ -462,7 +462,7 @@ footer {
     }
 }
 
-.btn-group-vertical a{
+.btn-group-vertical a {
     font-size: 16px;
     color: #343a40!important;
 }
@@ -480,14 +480,16 @@ footer {
     justify-content: center;
 }
 
-.btn-group, .btn-group-vertical {
+.btn-group,
+.btn-group-vertical {
     position: relative;
     display: -webkit-inline-box;
     display: -ms-inline-flexbox;
     display: inline-flex;
     vertical-align: middle;
 }
-.btn-group-vertical a{
+
+.btn-group-vertical a {
     text-decoration: none;
 }
 
@@ -521,49 +523,77 @@ footer {
     border: 1px solid #ced4da !important;
 }
 
- /* table css start here  */
-        
- .mat-cell,
- .mat-footer-cell {
-     font-size: 12px;
- }
- 
- .mat-form-field {
-     width: 100%;
- }
- 
- .mat-row:last-child {
-     border-bottom: none!important;
- }
- 
- mat-table {
-     margin-top: 15px;
- }
- 
- .mat-header-row {
-     min-height: 40px;
- }
- 
- .filter {
-     background: #f8f9fc!important;
- }
- 
- .mat-header-row {
-     background: #f8f9fc;
-     border-top: solid 1px rgba(0, 0, 0, .12);
- }
- 
- .dropdown-menu .list-group-item {
-     border-bottom: 1px solid rgba(0, 0, 0, .125);
- }
- 
- .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
-     border-color: #37597d;
- }
- .mat-radio-button.mat-accent .mat-radio-inner-circle, .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple), .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple, .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
-     background-color: #37597d;
- }
- .dropdown-menu {
-     border-radius: 0px;
- }
- /* table css end here  */
+
+/* table css start here  */
+
+.mat-cell,
+.mat-footer-cell {
+    font-size: 12px;
+}
+
+.mat-form-field {
+    width: 100%;
+}
+
+.mat-row:last-child {
+    border-bottom: none!important;
+}
+
+mat-table {
+    margin-top: 15px;
+}
+
+.mat-header-row {
+    min-height: 40px;
+}
+
+.filter {
+    background: #f8f9fc!important;
+}
+
+.mat-header-row {
+    background: #f8f9fc;
+    border-top: solid 1px rgba(0, 0, 0, .12);
+}
+
+.dropdown-menu .list-group-item {
+    border-bottom: 1px solid rgba(0, 0, 0, .125);
+}
+
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+    border-color: #37597d;
+}
+
+.mat-radio-button.mat-accent .mat-radio-inner-circle,
+.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple),
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple,
+.mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
+    background-color: #37597d;
+}
+
+.dropdown-menu {
+    border-radius: 0px;
+}
+
+
+/* table css end here  */
+
+#googlemaps {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -9999;
+}
+
+/* map compnent style */
+.MapInfo_popup{
+    position: absolute;
+    bottom: 35px;
+    right: 0;
+    z-index: 1;
+    background: #FFFFFF;
+    box-shadow: 0px 3px 25px #615eca45;
+    border-radius: 16px;
+}

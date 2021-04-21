@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div id="report-container">
     <div class="row m-0">
       <div class="col-sm-3" id="report-forms">
@@ -54,3 +55,90 @@
   
   </div>
   
+=======
+<agm-map id="googlemaps" [latitude]='lat' [longitude]='long'>
+</agm-map>
+<div id="report-container">
+  <div class="card card-body border-0" style="max-width: 250px;">
+    <div class="mb-3">
+      <label for="ddlVehicleNo" class="form-label">Title</label>
+      <select class="form-select" id="ddlVehicleNo">
+        <option value="">Enter Title</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="" class="form-label">Radius</label>
+      <input type="text" class="form-control" id="" placeholder="Radius (Meter)">
+    </div>
+    <div class="mb-3">
+      <label for="" class="form-label">Vehicle</label>
+      <textarea class="form-control" placeholder="MH 12 AB 1234" id="" style="height: 80px"></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="" class="form-label">Address</label>
+      <textarea class="form-control" placeholder="Swargate, Satara Road, Pune, 411037" id=""
+        style="height: 60px"></textarea>
+    </div>
+    <div class="d-grid gap-2 d-md-block">
+      <button type="reset" class="btn btn-primary me-2">Refresh</button>
+      <button type="submit" class="btn btn-success">Search</button>
+    </div>
+    <div class="map-right position-absolute" style="left: calc(100% + 10px); top: 0;">
+        
+          <button type="button" class="btn btn-light d-flex"> Map <i class="bi bi-chevron-down ms-3"></i></button>
+        
+      </div>
+  </div>
+  
+  <div class="map-right position-absolute" style="right: 10px; top:15%">
+    <p>
+      <button type="button" class="btn btn-light text-primary"><i class="bi bi-fullscreen"></i></button>
+    </p>
+  </div>
+
+</div>
+<!-- <div id="report-container">
+    <div class="row m-0">
+        <div class="col-sm-3" id="report-forms">
+            <div class="card card-body border-0">
+                <div class="mb-3">
+                    <label for="ddlVehicleNo" class="form-label">Title</label>
+                    <select class="form-select" id="ddlVehicleNo">
+              <option value="">Enter Title</option>
+            </select>
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Radius</label>
+                    <input type="text" class="form-control" id="" placeholder="Radius (Meter)">
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Vehicle</label>
+                    <textarea class="form-control" placeholder="MH 12 AB 1234" id="" style="height: 80px"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Address</label>
+                    <textarea class="form-control" placeholder="Swargate, Satara Road, Pune, 411037" id="" style="height: 60px"></textarea>
+                </div>
+                <div class="d-grid gap-2 d-md-block">
+                    <button type="reset" class="btn btn-primary me-2">Refresh</button>
+                    <button type="submit" class="btn btn-success">Search</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-9" id="report-content">
+            <div class="row" id="report-header">
+                <div class="col-sm-6">
+                    <h5>POI </h5>
+                </div>
+
+                <div class="w-100">
+                    <hr>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div> -->
+>>>>>>> master

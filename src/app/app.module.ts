@@ -17,8 +17,12 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { HttpClientModule } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSortModule } from '@angular/material/sort';
+<<<<<<< HEAD
 import { DatePipe } from '@angular/common';
 
+=======
+import { AgmCoreModule } from '@agm/core';
+>>>>>>> master
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +44,12 @@ import { DatePipe } from '@angular/common';
     MatIconModule,
     HttpClientModule,
     MatDialogModule,
-    MatSortModule
+    MatSortModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAV0MsCXcScyVTpfgelNpIakmESv9W0E3c',
+      language: 'en',
+      libraries: ['geometry', 'places']
+    })
   ],
   providers: [DatePipe,],
   bootstrap: [AppComponent]

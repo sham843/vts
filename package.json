@@ -11,7 +11,9 @@
   },
   "private": true,
   "dependencies": {
+    "@agm/core": "^3.0.0-beta.0",
     "@amcharts/amcharts4": "^4.10.17",
+    "@angular-material-components/datetime-picker": "^5.1.0",
     "@angular/animations": "~11.2.8",
     "@angular/cdk": "^11.2.8",
     "@angular/common": "~11.2.8",
@@ -37,6 +39,7 @@
     "@angular-devkit/build-angular": "~0.1102.7",
     "@angular/cli": "~11.2.7",
     "@angular/compiler-cli": "~11.2.8",
+    "@types/googlemaps": "^3.39.12",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
     "codelyzer": "^6.0.0",
