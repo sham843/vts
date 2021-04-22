@@ -55,30 +55,6 @@ export class ExcelService {
     doc.save(formDataObj.pageName);
   }
 
-  // exportAsExcelFile(headerInfo: any, key: any, rows: any, formDataObj: any) {
-  //   let result: any = rows.map((obj: any) => {
-  //     let filterObj: any = {};
-  //     for (let i: any = 0; i < key.length; i++) {
-  //       filterObj[key[i]] = obj[key[i]];
-  //     }
-  //     return filterObj;
-  //   });
-
-  //   const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(result);
-  //   const workbook: XLSX.WorkBook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
-  //   const excelBuffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
-
-  //   this.saveAsExcelFile(excelBuffer, formDataObj.pageName);
-  // }
-
-  // saveAsExcelFile(buffer: any, fileName: string): void {
-  //   const data: Blob = new Blob([buffer], {
-  //     type: EXCEL_TYPE
-  //   });
-  //   FileSaver.saveAs(data, fileName + EXCEL_EXTENSION);
-  // }
-
-
   exportAsExcelFile(keyExcelHeader: any, headersArray: any, json: any, formDataObj: any) {
     const header = keyExcelHeader;
 
@@ -156,27 +132,6 @@ export class ExcelService {
       worksheet.getColumn(index).width = header[index - 1].length < 20 ? 20 : header[index - 1].length;
 
     });
-
-  //   worksheet.eachRow(function (row:any, _rowNumber:any) {
-  //     row.eachCell(function (cell:any, _colNumber:any) {
-  //         // console.log(cell.address); // <- to see I actullay go into the cells
-  //         cell.border = {
-  //           top: {
-  //             style: 'thin'
-  //           },
-  //           left: {
-  //             style: 'thin'
-  //           },
-  //           bottom: {
-  //             style: 'thin'
-  //           },
-  //           right: {
-  //             style: 'thin'
-  //           }
-  //         };
-  //     });
-  // });
-    //Add Data Conditional Formating
 
     result.forEach((element: any) => {
       debugger

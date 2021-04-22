@@ -77,7 +77,7 @@ export class MaterialOrderComponent implements OnInit {
     if (this.materialOrderFrom.invalid) {
       this.hideReport = false;
       this.spinner.hide();
-      return;
+      return;9175286486
     }
     else {
       let data = this.materialOrderFrom.value;
