@@ -85,8 +85,6 @@ export class OverspeedComponent implements OnInit {
     })
   }
 
-
-
   get f() { return this.overSpeedFrom.controls };
 
   onSubmit() {
@@ -133,8 +131,6 @@ export class OverspeedComponent implements OnInit {
       })
     }
   }
-
-
 
   downLoadExcel() {
     let keyExcelHeader = ["Sr No."," Date","Speed","Address"];
