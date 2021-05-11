@@ -1,46 +1,184 @@
-<agm-map id="googlemaps" [latitude]='lat' [longitude]='long'>
+<agm-map id="googlemaps" [zoom]="zoom" [latitude]='lat' [longitude]='long' [mapTypeId]="this.mapViewType">
+
+  <agm-circle [latitude]="lat" [longitude]="long" [radius]="circleradius" [strokeWeight]="2" [strokeColor]="'#ff0000'" [fillColor]="'red'">
+      <agm-marker [latitude]="lat" [longitude]="long" [markerDraggable]="true" (dragEnd)="markerDragEnd($event)"></agm-marker>
+  </agm-circle>
+
 </agm-map>
 <div id="report-container">
   <div class="card card-body border-0" style="max-width: 250px;">
+    <div>
+    <form [formGroup]="poiForm" class="vehicle-form" (ngSubmit)="onSubmit()" autocomplete="off">
+  
     <div class="mb-2">
-      <label for="ddlVehicleNo" class="form-label mb-0">Title</label>
-      <select class="form-select" id="ddlVehicleNo">
-        <option value="">Enter Title</option>
-      </select>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Title<span class="text-danger">*</span></mat-label>
+        <input matInput [value]="title" formControlName="title"
+        placeholder="Enter Title" id=txtTitle  [readonly]="viewType" [ngClass]="{ 'is-invalid': submitted && f.title.errors }">
+        <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
+            <div *ngIf="f.title.errors.required">Title is required</div>
+        </div>
+      </mat-form-field>
+    </div>
+    <div class="mb-2"> 
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Radius<span class="text-danger">*</span></mat-label>
+        <input matInput type="number" formControlName="radius" [readonly]="viewType" min="0" max="9999"
+        [value]="radius" placeholder="Enter radius in meter" id=txtRadius  [ngClass]="{ 'is-invalid': submitted && f.radius.errors }">
+        <div *ngIf="submitted && f.radius.errors" class="invalid-feedback">
+            <div *ngIf="f.radius.errors.required">Radius is required</div>
+        </div>
+      </mat-form-field>
     </div>
     <div class="mb-2">
-      <label for="" class="form-label mb-0">Radius</label>
-      <input type="text" class="form-control" id="" placeholder="Radius (Meter)">
+      <!-- <label for="" class="form-label mb-0">Vehicle</label>
+      <textarea class="form-control" placeholder="MH 12 AB 1234" id="" style="height: 80px"></textarea> -->
+
+      <mat-form-field appearance="fill">
+        <mat-label>Vehicle<span class="text-danger">*</span></mat-label>
+        <mat-select #multiSelect [multiple]="true" [(ngModel)]="editselOpt"  id="placeType" formControlName="vehicleNo" formControlName="vehicleNo"
+        [ngClass]="{ 'is-invalid': submitted && f.vehicleNo.errors }">
+          <mat-option  *ngFor="let dt of vechileList" [value]="dt.vehicleId"  [innerHtml]="dt.vehicleNo" ></mat-option>
+          <div *ngIf="submitted && f.vehicleNo.errors" class="invalid-feedback">
+            <div *ngIf="f.vehicleNo.errors.required">Vehicle No is required</div>
+        </div>
+        </mat-select>
+        <div *ngIf="submitted && f.vehicleNo.errors" class="invalid-feedback">
+          <div *ngIf="f.vehicleNo.errors.required">Vehicle Number is required</div>
+      </div>
+      </mat-form-field>
     </div>
     <div class="mb-2">
-      <label for="" class="form-label mb-0">Vehicle</label>
-      <textarea class="form-control" placeholder="MH 12 AB 1234" id="" style="height: 80px"></textarea>
-    </div>
-    <div class="mb-2">
-      <label for="" class="form-label mb-0">Address</label>
-      <textarea class="form-control" placeholder="Swargate, Satara Road, Pune, 411037" id=""
-        style="height: 60px"></textarea>
+      <mat-form-field appearance="fill">
+          <mat-label>Address</mat-label>
+          <textarea matInput style="height: 60px" readonly [value]="address" formControlName="address"
+          placeholder="Address">{{address}}</textarea>
+        </mat-form-field>
     </div>
     <div class="d-grid gap-2 d-md-block">
-      <button type="reset" class="btn btn-primary me-2 btn-sm">Refresh</button>
-      <button type="submit" class="btn btn-success btn-sm">Search</button>
+      <button type="submit" class="btn btn-primary me-2 btn-sm" [disabled]="viewType">Save</button>
+      <button type="reset" class="btn btn-success btn-sm" (click)="clearForm()">Refresh</button>
       
     </div>
-    <div class="map-right position-absolute" style="left: calc(100% + 10px); top: 0;">
-        
-          <!-- <button type="button" class="btn btn-light d-flex"> Map <i class="bi bi-chevron-down ms-3"></i></button> -->
-          <select class="form-select" aria-label="Default select example">
-            <option selected>Map</option>
-            <option value="1">Satelite</option>
-          </select>
-          <div class="mt-1 p-2 ps-4 form-check bg-light">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-            <label class="form-check-label" for="flexCheckDefault"> Labels</label>
+    </form>
+  </div>
+     <button type="button" id="btnPoiDetail" class="btn btn-light shadow-sm" data-toggle="modal"
+      data-target="#poiDetails" data-toggle="modal" data-target="#PoiDetails">
+      <i class="fas fa-search"></i>
+  </button>
+  
+
+      <div class="map-right position-absolute" style="left: calc(100% + 10px); top: 0;">
+        <div class="searchbox">
+          <div class="form-group">
+              <input type="text" class="form-control" (keydown.enter)="$event.preventDefault()" placeholder="Search Location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search>
           </div>
       </div>
-      <div class="map-search ">
-        <button mat-raised-button (click)="openDialog()"><i class="bi bi-search"></i></button>
+      <div class="markers" style="right: 87px;">
+        <button class="btn btn-light" type="button" 
+            data-toggle="collapse" data-target="#cardMapType" (click)="toggleClass()" aria-expanded="false" aria-controls="cardMapType">
+            <ng-container *ngIf="mapViewType == 'roadmap' || mapViewType == 'terrain'" >
+                Map
+            </ng-container>
+            <ng-container *ngIf="mapViewType == 'satellite'  || mapViewType == 'hybrid'"  >
+                Satelite
+            </ng-container>
+        </button>
+
+        <div class="collapse multi-collapse" id="cardMapType">
+          <div class="card card-body">
+              <div>
+                  <label  (click)="changeMap('map')">Map</label>
+              </div>
+              <div>
+                  <label  (click)="changeMap('satellite')">Satelite</label>
+              </div>
+              <div>
+                  <label (change)="checkValue(isChecked?'terrain':'labels', this.mapViewType)"><input type="checkbox" [(ngModel)]="isChecked" > Labels</label>
+              </div>
+             
+          </div>
       </div>
+      </div>
+   
+
+  <div class="modal fade" id="PoiDetails" tabindex="-1" aria-labelledby="PoiDetailsLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="PoiDetailsLabel">Poi Details</h5>
+                <button type="button" #close class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="vehicle-details">
+                    <!-- <table class="table table-bordered">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Sr.</th>
+                                <th>Title</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let VDetailsData of VehicleDetailsData ; let i = index"
+                                [class.active]="i == HighlightRow">
+                                <td>{{VehicleDetailsData.indexOf(VDetailsData) + 1}}</td>
+                                <td>{{VDetailsData?.title}}</td>
+                                <td> <button type="button"  class="btn btn-outline-success mr-2 btn-sm "
+                                        (click)="poiDetailsViewEditDel(i, 'edit')"><i class="fas fa-pencil-alt"></i></button>
+                                    <button type="button" class="btn btn-outline-success btn-sm mr-2"
+                                        (click)="poiDetailsViewEditDel(i, 'view')"><i class="fas fa-eye"></i></button>
+                                    <button type="button" class="btn btn-outline-success btn-sm "
+                                    (click)="poiDetailsViewEditDel(i, 'del')"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        
+                    </table> -->
+
+<div>
+  <mat-table #table class="table table-bordered" [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="rowNumber">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Sr. </mat-header-cell>
+      <mat-cell *matCellDef="let element;let i=index"> {{ (i + 1) + (paginator.pageIndex * paginator.pageSize) }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="title">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Vehicle no. </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Action </mat-header-cell>
+      <mat-cell *matCellDef="let element ;let i=index"> <button type="button"  class="btn btn-outline-success mr-2 btn-sm "
+        (click)="poiDetailsViewEditDel( i + (paginator.pageIndex * paginator.pageSize), 'edit')"><i class="fas fa-pencil-alt"></i></button>
+    <button type="button" class="btn btn-outline-success btn-sm mr-2"
+        (click)="poiDetailsViewEditDel(i, 'view')"><i class="fas fa-eye"></i></button>
+    <button type="button" class="btn btn-outline-success btn-sm "
+    (click)="poiDetailsViewEditDel(i + (paginator.pageIndex * paginator.pageSize), 'del')"><i class="fas fa-trash"></i></button>
+</mat-cell>
+    </ng-container>
+
+    <div class="mat-row p-4" *matNoDataRow>
+      <h5 class="text-danger">Not Found Breakdown Details!!!!! </h5>
+    </div>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator> </div>
+               
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+
+
   </div>
   
   <div class="map-right position-absolute" style="right: 10px; top:15%">
@@ -50,47 +188,6 @@
   </div>
 
 </div>
-<!-- <div id="report-container">
-    <div class="row m-0">
-        <div class="col-sm-3" id="report-forms">
-            <div class="card card-body border-0">
-                <div class="mb-3">
-                    <label for="ddlVehicleNo" class="form-label">Title</label>
-                    <select class="form-select" id="ddlVehicleNo">
-              <option value="">Enter Title</option>
-            </select>
-                </div>
-                <div class="mb-3">
-                    <label for="" class="form-label">Radius</label>
-                    <input type="text" class="form-control" id="" placeholder="Radius (Meter)">
-                </div>
-                <div class="mb-3">
-                    <label for="" class="form-label">Vehicle</label>
-                    <textarea class="form-control" placeholder="MH 12 AB 1234" id="" style="height: 80px"></textarea>
-                </div>
-                <div class="mb-3">
-                    <label for="" class="form-label">Address</label>
-                    <textarea class="form-control" placeholder="Swargate, Satara Road, Pune, 411037" id="" style="height: 60px"></textarea>
-                </div>
-                <div class="d-grid gap-2 d-md-block">
-                    <button type="reset" class="btn btn-primary me-2">Refresh</button>
-                    <button type="submit" class="btn btn-success">Search</button>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-9" id="report-content">
-            <div class="row" id="report-header">
-                <div class="col-sm-6">
-                    <h5>POI </h5>
-                </div>
 
-                <div class="w-100">
-                    <hr>
-                </div>
 
-            </div>
 
-        </div>
-    </div>
-
-</div> -->

@@ -84,6 +84,11 @@ export class CommonService {
     return usermobileNo.mobileNo1
   }
 
+  getVehicleOwnerId() {
+    let vehOwnerId= this.getLocalStorageData();
+    return vehOwnerId.vehicleOwnerId
+  }
+
   fromDate(): string {
     return (this.date.getFullYear().toString() + '-'
       + ("0" + (this.date.getMonth() + 1)).slice(-2) + '-'
