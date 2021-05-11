@@ -81,6 +81,17 @@ export class MaterialOrderComponent implements OnInit {
     }
     else {
       let data = this.materialOrderFrom.value;
+
+      let date1: any = new Date(data.fromDate);
+      let timeStamp = Math.round(new Date(data.toDate).getTime() / 1000);
+      let timeStampYesterday = timeStamp - (168 * 3600);
+      let is24 = date1 >= new Date(timeStampYesterday * 1000).getTime();
+      if (!is24) {
+        this._snackBar.open("Date difference does not exceed 7 days.");
+        this.spinner.hide();
+        return
+      }
+
       data.fromDate = this.datepipe.transform(data.fromDate, 'yyyy-MM-dd') ;
       data.toDate = this.datepipe.transform(data.toDate, 'yyyy-MM-dd');
       this._callAPIService.callAPI('get', 'vehicle-tracking/mahakhanij/get-material-order-enquiry?UserId=' + this._commonService.loggedInUserId() + '&fromDate=' + data.fromDate + '&toDate=' + data.toDate, false, false , false,'vehicleTrackingBaseUrlApi');
@@ -88,9 +99,9 @@ export class MaterialOrderComponent implements OnInit {
         if (res.statusCode === "200") {
           this.materialOrderReportData = Object.assign(res.responseData, this.materialOrderFrom.value);
            this.dataSource = new MatTableDataSource(res.responseData);
-          this.dataSource.paginator = this.paginator;
          // console.log(this.invoiceReportData);
           setTimeout(() => {
+            this.dataSource.paginator = this.paginator;
             this.dataSource.sort = this.sort; 
           })
           this.hideReport = true;

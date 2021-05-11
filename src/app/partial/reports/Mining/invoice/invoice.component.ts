@@ -108,14 +108,26 @@ export class InvoiceComponent implements OnInit {
     }
     else {
       let data = this.invoiceFrom.value;
+
+      let date1: any = new Date(data.fromDate);
+      let timeStamp = Math.round(new Date(data.toDate).getTime() / 1000);
+      let timeStampYesterday = timeStamp - (24 * 3600);
+      let is24 = date1 >= new Date(timeStampYesterday * 1000).getTime();
+
+      if (!is24) {
+        this._snackBar.open("Date difference does not exceed 24hr.","Ok");
+        this.spinner.hide();
+        return
+      }
+
+
       this._callAPIService.callAPI('get', 'vehicle-tracking/reports/get-invoice-history?UserId=' + this._commonService.loggedInUserId() + '&FromDate=' + data.fromDate + '&toDate=' + data.toDate, false, false, false, 'vehicleTrackingBaseUrlApi');
       this._callAPIService.getResponse().subscribe((res: any) => {
         if (res.statusCode === "200") {
           this.invoiceReportData = Object.assign(res.responseData.data, this.invoiceFrom.value, driversData);
            this.dataSource = new MatTableDataSource(res.responseData.data);
-          this.dataSource.paginator = this.paginator;
-          console.log(this.invoiceReportData);
           setTimeout(() => {
+            this.dataSource.paginator = this.paginator;
             this.dataSource.sort = this.sort; 
           })
           this.hideReport = true;

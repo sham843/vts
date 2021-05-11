@@ -135,18 +135,21 @@
               <div class="col-md mb-md-2">
                 <div class="mb-3 report-info">
                   <p class="form-label mb-2"><i class="bi bi-geo-alt-fill text-success"></i> Start location</p>
-                  <p class="mb-0"><span class="text-primary">Unnamed Road, Butibori, Maharashtra 441122, India</span>
-                  </p>
+                  <div><ng-container><i class="fa fa-spinner fa-spin" *ngIf="loading"></i></ng-container>
+                                    <h5 class="mb-1">{{addressStart}}</h5>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="row">
+           
               <div class="col-md mb-md-2">
                 <div class="mb-3 report-info">
                   <p class="form-label mb-2"><i class="bi bi-geo-alt-fill text-danger"></i> Last location</p>
-                  <p class="mb-0"><span class="text-primary">Unnamed Road, Kinhala, Maharashtra 441122, India</span></p>
+                 <div> <ng-container><i class="fa fa-spinner fa-spin" *ngIf="loading"></i></ng-container>
+                                    <h5 class="mb-1">{{addressEnd}}</h5>
+                 </div>
                 </div>
               </div>
+              
             </div>
           </div>
         </div>

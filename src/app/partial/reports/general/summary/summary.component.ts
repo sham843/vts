@@ -5,7 +5,7 @@ import { CommonService } from 'src/app/services/common.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ExcelService } from 'src/app/services/excel.service';
-
+import { MapsAPILoader } from '@agm/core';
 
 @Component({
   selector: 'app-summary',
@@ -27,6 +27,12 @@ export class SummaryComponent implements OnInit {
   maxDateOut: any = new Date();
   emptyData = true;
   maxDate:any = this._commonService.toDate();
+  geoCoder: any;
+  addressStart: any;
+  addressEnd: any;
+  latlngStart: any;
+  latlngEnd: any;
+  loading = false;
 
   constructor(private _callAPIService: CallAPIService,
     private _snackBar: MatSnackBar,
@@ -34,9 +40,14 @@ export class SummaryComponent implements OnInit {
     private formBuilder: FormBuilder,
     private spinner: NgxSpinnerService,
     private _excelService:ExcelService,
+    private mapsAPILoader: MapsAPILoader,
   ) { }
 
   ngOnInit(): void {
+    this.mapsAPILoader.load().then(() => {
+      this.geoCoder = new google.maps.Geocoder;
+    });
+
     this.getVehiclesList();
     this.customForm();
   }
@@ -102,12 +113,29 @@ export class SummaryComponent implements OnInit {
       };
 
       let data = this.summaryFrom.value;
+
+      let date1: any = new Date(data.fromDate);
+      let timeStamp = Math.round(new Date(data.toDate).getTime() / 1000);
+      let timeStampYesterday = timeStamp - (24 * 3600);
+      let is24 = date1 >= new Date(timeStampYesterday * 1000).getTime();
+
+      if (!is24) {
+        this._snackBar.open("Date difference does not exceed 24hr.","Ok");
+        this.spinner.hide();
+        return
+      }
+
       this._callAPIService.callAPI('get', 'vehicle-tracking/tracking/get-summary-report?VehicleNumber=' + data.VehicleNumber + '&fromDate=' + data.fromDate + '&toDate=' + data.toDate, false, false, false, 'vehicleTrackingBaseUrlApi');
       this._callAPIService.getResponse().subscribe((res: any) => {
         if (res.statusCode === "200") {
+          this.spinner.hide();
+          this.addressStart= "";
+          this.addressEnd ="";
+          this.getAddress(res.responseData.startLatLong,'startAddress');
+          this.getAddress(res.responseData.endLatLong,'endAddress');
+
           this.summaryReportData = Object.assign(res.responseData, this.summaryFrom.value, driversData);
           this.hideReport = true;
-          this.spinner.hide();
         }
         else if (res.statusCode === "409") {
           this.spinner.hide();
@@ -119,6 +147,28 @@ export class SummaryComponent implements OnInit {
           this.spinner.hide();
         }
       })
+    }
+  }
+
+  getAddress(getLatlng:any, address:any) {
+    debugger;
+    if(getLatlng != null){
+      this.loading = true;
+        let latlng:any = getLatlng.split(",")
+        this.geoCoder.geocode({ 'location': { lat: Number(latlng[0]), lng: Number(latlng[1]) } }, (results: any) => {
+          if(address == 'startAddress'){
+            this.addressStart = results[0].formatted_address;
+            this.loading = false;
+          }else{
+            this.addressEnd= results[0].formatted_address;
+            this.loading = false;
+          }
+      });
+    }
+    
+    else{
+      this.addressStart = "Unknown location";
+      this.addressEnd = "Unknown location"
     }
   }
 

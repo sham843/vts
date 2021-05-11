@@ -35,14 +35,14 @@
                                 <div class="col-sm-4">
                                     <mat-form-field class="example-full-width" appearance="fill">
                                         <input matInput type="number" min="1"
-                                        formControlName="fromRange" placeholder="From">
+                                        formControlName="fromRange" placeholder="From"  [ngClass]="{ 'is-invalid': submitted && f.fromRange.errors }">
                                     </mat-form-field>
                                 </div>
 
                                 <div class="col-sm-4">
                                     <mat-form-field class="example-full-width" appearance="fill">
                                         <input matInput type="number" min="1" formControlName="toRange"
-                                         placeholder="To">
+                                         placeholder="To" [ngClass]="{ 'is-invalid': submitted && f.toRange.errors }">
                                     </mat-form-field>
                                 </div>
 
@@ -51,6 +51,10 @@
                                 </div>
 
                             </div>
+                            <mat-error *ngIf="submitted && f.fromRange.errors || submitted && f.toRange.errors" class="invalid-feedback">
+                                <mat-error *ngIf="f.fromRange.errors.required || f.toRange.errors.required">Speed Range is required
+                                </mat-error>
+                            </mat-error> 
                         </div>
 
                     </div>
@@ -110,7 +114,7 @@
 
                         <ng-container matColumnDef="deviceDateTime">
                             <mat-header-cell *matHeaderCellDef mat-sort-header> Date </mat-header-cell>
-                            <mat-cell *matCellDef="let element"> {{element.deviceDateTime}} </mat-cell>
+                            <mat-cell *matCellDef="let element"> {{element.deviceDateTime | date:'dd-MM-yyyy hh:mm a'}} </mat-cell>
                         </ng-container>
 
                         <ng-container matColumnDef="speed">

@@ -58,8 +58,8 @@ export class SpeedRangeComponent implements OnInit {
       VehicleNumber: ['', Validators.required],
       fromDate: [this._commonService.fromDate()],
       toDate: [this._commonService.toDate()],
-      fromRange: [''],
-      toRange: [''],
+      fromRange: ['', Validators.required],
+      toRange: ['', Validators.required],
     });
   }
 
@@ -112,13 +112,26 @@ export class SpeedRangeComponent implements OnInit {
     }
     else {
       let data = this.speedRangeFrom.value;
+
+      let date1: any = new Date(data.fromDate);
+      let timeStamp = Math.round(new Date(data.toDate).getTime() / 1000);
+      let timeStampYesterday = timeStamp - (24 * 3600);
+      let is24 = date1 >= new Date(timeStampYesterday * 1000).getTime();
+
+      if (!is24) {
+        this._snackBar.open("Date difference does not exceed 24hr.","Ok");
+        this.spinner.hide();
+        return
+      }
+
+
       this._callAPIService.callAPI('get', 'vehicle-tracking/reports/get-overspeed-report-speedrange?UserId=' + this._commonService.loggedInUserId() + '&VehicleNo=' + data.VehicleNumber + '&FromDate=' + data.fromDate + '&toDate=' + data.toDate, false, false, false, 'vehicleTrackingBaseUrlApi');
       this._callAPIService.getResponse().subscribe((res: any) => {
         if (res.statusCode === "200") {
           this.speedRangeReportData = Object.assign(res.responseData, this.speedRangeFrom.value, driversData);
           this.dataSource = new MatTableDataSource(res.responseData);
-          this.dataSource.paginator = this.paginator;
           setTimeout(() => {
+            this.dataSource.paginator = this.paginator;
             this.dataSource.sort = this.sort;
           })
           this.hideReport = true;

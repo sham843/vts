@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
-//import { ToastrService } from 'ngx-toastr';
 import { CommonService } from 'src/app/services/common.service';
 import { CallAPIService } from 'src/app/services/call-api.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -58,6 +57,8 @@ export class OverspeedComponent implements OnInit {
     });
   }
 
+  
+
   clearForm() {
     this.hideReport = false;
     this.select = true;
@@ -107,13 +108,26 @@ export class OverspeedComponent implements OnInit {
     }
     else {
       let data = this.overSpeedFrom.value;
+
+      let date1: any = new Date(data.fromDate);
+      let timeStamp = Math.round(new Date(data.toDate).getTime() / 1000);
+      let timeStampYesterday = timeStamp - (24 * 3600);
+      let is24 = date1 >= new Date(timeStampYesterday * 1000).getTime();
+
+      if (!is24) {
+        this._snackBar.open('Date difference does not exceed 24hr.','Ok');
+        this.spinner.hide();
+        return
+      }
+
+
       this._callAPIService.callAPI('get', 'vehicle-tracking/reports/get-vehicle-details-for-overspeed?UserId=' + this._commonService.loggedInUserId() + '&VehicleNo=' + data.VehicleNumber + '&FromDate=' + data.fromDate + '&toDate=' + data.toDate, false, false, false, 'vehicleTrackingBaseUrlApi');
       this._callAPIService.getResponse().subscribe((res: any) => {
         if (res.statusCode === "200") {
           this.overSpeedReportData = Object.assign(res.responseData, this.overSpeedFrom.value, driversData);
           this.dataSource = new MatTableDataSource(res.responseData);
-          this.dataSource.paginator = this.paginator;
           setTimeout(() => {
+            this.dataSource.paginator = this.paginator;
             this.dataSource.sort = this.sort; 
           })
           this.hideReport = true;
