@@ -1,8 +1,8 @@
 <agm-map id="googlemaps" [zoom]="zoom" [latitude]='lat' [longitude]='long' [mapTypeId]="this.mapViewType">
 
   <agm-circle [latitude]="lat" [longitude]="long" [radius]="circleradius" [strokeWeight]="2" [strokeColor]="'#ff0000'" [fillColor]="'red'">
-      <agm-marker [latitude]="lat" [longitude]="long" [markerDraggable]="true" (dragEnd)="markerDragEnd($event)"></agm-marker>
-  </agm-circle>
+      <agm-marker [latitude]="lat" [longitude]="long"  [markerDraggable]="true" (dragEnd)="markerDragEnd($event)"></agm-marker>
+  </agm-circle>ss
 
 </agm-map>
 <div id="report-container">
@@ -15,9 +15,7 @@
         <mat-label>Title<span class="text-danger">*</span></mat-label>
         <input matInput [value]="title" formControlName="title"
         placeholder="Enter Title" id=txtTitle  [readonly]="viewType" [ngClass]="{ 'is-invalid': submitted && f.title.errors }">
-        <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
-            <div *ngIf="f.title.errors.required">Title is required</div>
-        </div>
+        <mat-error *ngIf="submitted && f.title.errors" class="invalid-feedback">Title is required</mat-error>
       </mat-form-field>
     </div>
     <div class="mb-2"> 
@@ -25,29 +23,18 @@
         <mat-label>Radius<span class="text-danger">*</span></mat-label>
         <input matInput type="number" formControlName="radius" [readonly]="viewType" min="0" max="9999"
         [value]="radius" placeholder="Enter radius in meter" id=txtRadius  [ngClass]="{ 'is-invalid': submitted && f.radius.errors }">
-        <div *ngIf="submitted && f.radius.errors" class="invalid-feedback">
-            <div *ngIf="f.radius.errors.required">Radius is required</div>
-        </div>
+        <mat-error *ngIf="submitted && f.radius.errors" class="invalid-feedback">Radius is required </mat-error>
       </mat-form-field>
     </div>
     <div class="mb-2">
-      <!-- <label for="" class="form-label mb-0">Vehicle</label>
-      <textarea class="form-control" placeholder="MH 12 AB 1234" id="" style="height: 80px"></textarea> -->
-
-      <mat-form-field appearance="fill">
-        <mat-label>Vehicle<span class="text-danger">*</span></mat-label>
-        <mat-select #multiSelect [multiple]="true" [(ngModel)]="editselOpt"  id="placeType" formControlName="vehicleNo" formControlName="vehicleNo"
-        [ngClass]="{ 'is-invalid': submitted && f.vehicleNo.errors }">
-          <mat-option  *ngFor="let dt of vechileList" [value]="dt.vehicleId"  [innerHtml]="dt.vehicleNo" ></mat-option>
-          <div *ngIf="submitted && f.vehicleNo.errors" class="invalid-feedback">
-            <div *ngIf="f.vehicleNo.errors.required">Vehicle No is required</div>
-        </div>
-        </mat-select>
-        <div *ngIf="submitted && f.vehicleNo.errors" class="invalid-feedback">
-          <div *ngIf="f.vehicleNo.errors.required">Vehicle Number is required</div>
-      </div>
-      </mat-form-field>
+      <select [(ngModel)]="editselOpt" id="placeType" multiple class="form-control" formControlName="vehicleNo" [ngClass]="{ 'is-invalid': submitted && f.vehicleNo.errors }">
+        <!-- <option value="" disabled>Select Vehicle No.</option> -->
+        <option   *ngFor="let dt of vechileList" [value]="dt.vehicleId"  [innerHtml]="dt.vehicleNo" >
+        </option> 
+    </select>
+    <mat-error *ngIf="submitted && f.vehicleNo.errors" class="invalid-feedback">Vehicle No is required</mat-error>
     </div>
+
     <div class="mb-2">
       <mat-form-field appearance="fill">
           <mat-label>Address</mat-label>
@@ -62,19 +49,13 @@
     </div>
     </form>
   </div>
-     <button type="button" id="btnPoiDetail" class="btn btn-light shadow-sm" data-toggle="modal"
-      data-target="#poiDetails" data-toggle="modal" data-target="#PoiDetails">
-      <i class="fas fa-search"></i>
-  </button>
+    
   
 
       <div class="map-right position-absolute" style="left: calc(100% + 10px); top: 0;">
-        <div class="searchbox">
-          <div class="form-group">
-              <input type="text" class="form-control" (keydown.enter)="$event.preventDefault()" placeholder="Search Location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search>
-          </div>
-      </div>
-      <div class="markers" style="right: 87px;">
+    
+      
+    <div class="markers" style="right: 87px;">
         <button class="btn btn-light" type="button" 
             data-toggle="collapse" data-target="#cardMapType" (click)="toggleClass()" aria-expanded="false" aria-controls="cardMapType">
             <ng-container *ngIf="mapViewType == 'roadmap' || mapViewType == 'terrain'" >
@@ -100,7 +81,13 @@
           </div>
       </div>
       </div>
-   
+
+      <div class="searchbox">
+        <div class="form-group">
+            <input type="text" class="form-control" (keydown.enter)="$event.preventDefault()" placeholder="Search Location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search>
+        </div>
+    </div>
+  
 
   <div class="modal fade" id="PoiDetails" tabindex="-1" aria-labelledby="PoiDetailsLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -113,30 +100,6 @@
             </div>
             <div class="modal-body">
                 <div class="vehicle-details">
-                    <!-- <table class="table table-bordered">
-                        <thead class="thead-light">
-                            <tr>
-                                <th>Sr.</th>
-                                <th>Title</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let VDetailsData of VehicleDetailsData ; let i = index"
-                                [class.active]="i == HighlightRow">
-                                <td>{{VehicleDetailsData.indexOf(VDetailsData) + 1}}</td>
-                                <td>{{VDetailsData?.title}}</td>
-                                <td> <button type="button"  class="btn btn-outline-success mr-2 btn-sm "
-                                        (click)="poiDetailsViewEditDel(i, 'edit')"><i class="fas fa-pencil-alt"></i></button>
-                                    <button type="button" class="btn btn-outline-success btn-sm mr-2"
-                                        (click)="poiDetailsViewEditDel(i, 'view')"><i class="fas fa-eye"></i></button>
-                                    <button type="button" class="btn btn-outline-success btn-sm "
-                                    (click)="poiDetailsViewEditDel(i, 'del')"><i class="fas fa-trash"></i></button>
-                                </td>
-                            </tr>
-                        </tbody>
-                        
-                    </table> -->
 
 <div>
   <mat-table #table class="table table-bordered" [dataSource]="dataSource" matSort>
@@ -150,7 +113,7 @@
       <mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="action">
+    <ng-container matColumnDef="action" class="EDU">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Action </mat-header-cell>
       <mat-cell *matCellDef="let element ;let i=index"> <button type="button"  class="btn btn-outline-success mr-2 btn-sm "
         (click)="poiDetailsViewEditDel( i + (paginator.pageIndex * paginator.pageSize), 'edit')"><i class="fas fa-pencil-alt"></i></button>
@@ -178,8 +141,12 @@
 
     </div>
 
-
   </div>
+
+  <mat-button type="button" id="btnPoiDetail" class="btn btn-secondary shadow-sm mt-3" data-toggle="modal"
+  data-target="#poiDetails" data-toggle="modal" data-target="#PoiDetails">
+  <i class="fas fa-search"></i>
+</mat-button>
   
   <div class="map-right position-absolute" style="right: 10px; top:15%">
     <p>

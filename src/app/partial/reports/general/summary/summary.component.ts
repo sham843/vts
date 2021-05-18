@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CallAPIService } from 'src/app/services/call-api.service';
 import { CommonService } from 'src/app/services/common.service';
@@ -41,6 +41,7 @@ export class SummaryComponent implements OnInit {
     private spinner: NgxSpinnerService,
     private _excelService:ExcelService,
     private mapsAPILoader: MapsAPILoader,
+    private zone: NgZone
   ) { }
 
   ngOnInit(): void {

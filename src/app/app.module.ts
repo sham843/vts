@@ -11,7 +11,7 @@ import { SidebarComponent } from './partial/layout/sidebar/sidebar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 import { MatInputModule } from '@angular/material/input';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { HttpClientModule } from '@angular/common/http';
@@ -49,7 +49,10 @@ import { DatePipe } from '@angular/common';
       libraries: ['geometry', 'places']
     })
   ],
-  providers: [DatePipe,],
+  providers: [DatePipe,
+    {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 2000, verticalPosition: 'top', 
+    horizontalPosition: 'end',}}
+ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

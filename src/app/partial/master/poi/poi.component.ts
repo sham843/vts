@@ -1,7 +1,6 @@
 import {MatDialog} from '@angular/material/dialog';
 import { Component, OnInit, NgZone, ElementRef, ViewChild } from '@angular/core';
-import { MapsAPILoader} from '@agm/core';
-  import {  MouseEvent  } from '@agm/core';
+import { MapsAPILoader,MouseEvent} from '@agm/core';
 import { CommonService } from 'src/app/services/common.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -11,7 +10,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-
 
 @Component({
   selector: 'app-poi',
@@ -145,7 +143,7 @@ export class PoiComponent implements OnInit{
            this.dataSource.paginator = this.paginator;
            this.dataSource.sort = this.sort; 
          })
-        console.log(this.VehicleDetailsData);
+       
       }
       else if (res.statusCode === "409") {
         alert(res.statusMessage);
@@ -182,15 +180,17 @@ export class PoiComponent implements OnInit{
       if (res.statusCode === "200") {
         this.removeBtnFlag = false;
         this.getVehicleDetails();
-        // this.toastrService.success(res.statusMessage);
+        this._snackBar.open(res.statusMessage,'OK',);
         this.spinner.hide();
         // this.submitted = false;
         this.clearForm();
       }
       else if (res.statusCode === "409") {
+        this._snackBar.open(res.statusMessage,'OK');
         // this.toastrService.error(res.statusMessage);
       }
       else {
+        this._snackBar.open("No data found");
         // this.toastrService.error("No data found");
         this.spinner.hide();
       }
@@ -209,7 +209,6 @@ export class PoiComponent implements OnInit{
   poiDetailsViewEditDel(index: any, checkFlag: any) {
     if (checkFlag == 'del') {
       let selObj = this.VehicleDetailsData[index];
-      console.log(this.poiGlobalObj);
       this.poiGlobalObj = {
         "id": selObj.id, "vehicleOwnerId": this._commonService.getVehicleOwnerId(), "title": selObj.title, "latitude": selObj.latitude, "longitude": selObj.longitude, "distance": selObj.distance, "poiAddress": selObj.poiAddress, "userId": this._commonService.loggedInUserId(), "createdDate": this.todayDate, "isDeleted": true, "vehicleId": selObj.vehicleId, "flag": 'D'
       }
@@ -251,7 +250,7 @@ export class PoiComponent implements OnInit{
 
   getAddress(lat: number, long: number) {
     this.spinner.show();
-    this.geoCoder.geocode({ 'location': { lat: lat, lng: long } }, (results: any, status: any) => {
+    this.geoCoder.geocode({'location': { lat: lat, lng: long } }, (results: any, status: any) => {
       if (status === 'OK') {
         if (results[0]) {
           this.spinner.hide();
@@ -259,6 +258,7 @@ export class PoiComponent implements OnInit{
           this.address = results[0].formatted_address;
         } else {
           this.spinner.hide();
+          this._snackBar.open('No results found');
           // this.toastrService.error('No results found');
         }
       }

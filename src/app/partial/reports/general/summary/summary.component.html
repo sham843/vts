@@ -15,12 +15,22 @@
               </mat-error>
             </mat-form-field>
           </div>
+
           <div class="form-group has-feedback">
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label>From Date</mat-label>
               <input matInput type='datetime-local' autofocus placeholder="User Name" formControlName="fromDate">
             </mat-form-field>
+
+<!-- 
+            <mat-form-field>
+              <input matInput [ngxMatDatetimePicker]="picker" placeholder="Choose a date" formControlName="fromDate">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <ngx-mat-datetime-picker #picker></ngx-mat-datetime-picker>
+            </mat-form-field> -->
+
           </div>
+
           <div class="form-group has-feedback">
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label>To Date</mat-label>

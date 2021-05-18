@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -33,14 +34,14 @@ export class CallAPIService {
   }
   constructor(private http: HttpClient) {}
 
-  getResponse(): any {
+  getResponse():any{
     let temp: any = undefined;
     !this.httpObj.options.body && (delete this.httpObj.options.body)
     !this.httpObj.options.params && (delete this.httpObj.options.params)
     return this.http.request(this.httpObj.type, this.httpObj.url, this.httpObj.options);
   }
 
-  callAPI(type: string, url: string, isHeader: Boolean, obj: any, params: any, baseUrl: any) {
+  callAPI(type: string, url: string, isHeader: Boolean, obj: any, params: any, baseUrl: any):any{
     try {
       this.userObj = JSON.parse(localStorage.UserInfo);
       this.UserLoginDetails = JSON.parse(localStorage.UserLoginDetails);

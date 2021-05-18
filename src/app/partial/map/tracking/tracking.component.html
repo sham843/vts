@@ -1,6 +1,28 @@
-<agm-map id="googlemaps" [latitude]='lat' [longitude]='long'>
+<agm-map id="googlemaps"  [latitude]='lat'  [longitude]='long' [zoom]="zoom" (mapReady)="onMapReady($event)" >
+  <!-- <ng-container *ngIf="hideMapInfo"> -->
+      <agm-marker [latitude]='lat' [longitude]='long'>
+          <!-- <agm-info-window [isOpen]="hideMapInfo" (infoWindowClose)="close($event)">
+              <table class="table table-bordered table-sm mb-0">
+                  <tbody>
+                      <tr>
+                          <td>Sr. :</td>
+                          <th>{{mapeInfoSn}}</th>
+                      </tr>
+                      <tr>
+                          <td>Speed :</td>
+                          <th>{{mapeInfospeed}} Km/h</th>
+                      </tr>
+                      <tr>
+                          <td>Address :</td>
+                          <th style="max-width:250px;">AH43, Jamtha, Maharashtra 441108, India</th>
+                      </tr>
+                  </tbody>
+              </table>
+          </agm-info-window> -->
+      </agm-marker>
+  <!-- </ng-container> -->
 </agm-map>
-
+<!-- 
 <div id="report-container">
   <div class="card card-body border-0" style="max-width: 250px;">
     <div class="mb-2">
@@ -80,7 +102,7 @@
       <button type="button" class="btn btn-light text-primary"><i class="bi bi-stoplights-fill"></i></button>
     </div>
   </div>
-</div>
+</div> -->
 
 
 <!-- <div id="report-container">
