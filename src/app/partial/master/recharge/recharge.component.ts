@@ -97,7 +97,8 @@ export class RechargeComponent implements OnInit {
     else {
       this.VehicleListRes[selIndex].checkBoxStatus = false;
       this.cheArray = this.cheArray.filter((item: any) => item.rNo != prevIndex);
-
+      // let rwoNo = this.cheArray.indexOf(Number(prevIndex));
+      // this.cheArray.splice(rwoNo, 1);
     }
   }
 
