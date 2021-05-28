@@ -14,6 +14,7 @@ export class TrackingComponent implements OnInit {
   showmarkpos: boolean = false;
   showmaptype: boolean = false;
   map: any;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -21,6 +22,7 @@ export class TrackingComponent implements OnInit {
 
   onMapReady(map: any) {
     this.map = map;
+    
     // this.mockDirections();
   }
 

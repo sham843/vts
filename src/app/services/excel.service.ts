@@ -3,20 +3,20 @@ import * as FileSaver from 'file-saver';
 import * as XLSX from 'xlsx';
 import { jsPDF } from 'jspdf';
 import 'jspdf-autotable';
-// import * as Excel from "exceljs";
+import * as Excel from "exceljs";
 declare const ExcelJS: any;
-
 import { DatePipe } from '@angular/common';
 import { any } from '@amcharts/amcharts4/.internal/core/utils/Array';
 
 const EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
 const EXCEL_EXTENSION = '.xlsx';
+
 @Injectable({
   providedIn: 'root'
 })
 
 export class ExcelService {
-  [x: string]: any;
+  // [x: string]: any;
   constructor(private _datePipe: DatePipe) {
   }
 
@@ -101,9 +101,8 @@ export class ExcelService {
     worksheet.addRow([]);
 
     //Add Header Row
-
     //Cell Style : Fill And Border
-
+    
     const headerRow = worksheet.addRow(header);
 
     headerRow.eachCell((cell: any, index: any) => {

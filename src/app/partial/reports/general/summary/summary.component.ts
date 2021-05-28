@@ -94,7 +94,7 @@ export class SummaryComponent implements OnInit {
     this.submitted = true;
     this.spinner.show();
     if (this.summaryFrom.invalid) {
-      this.hideReport = false;
+     this.hideReport = false;
       this.spinner.hide();
       return;
     }
@@ -144,7 +144,7 @@ export class SummaryComponent implements OnInit {
         }
         else {
           this.hideReport = false;
-          this._snackBar.open(res.statusMessage,'OK');
+          this._snackBar.open("No data found",'OK');
           this.spinner.hide();
         }
       })

@@ -81,6 +81,7 @@ export class TripComponent implements OnInit {
     this.submitted = false;
     this.tripFrom.reset({
       VehicleNumber: '',
+      tripFormate: 'Trip',
       toDate: this._commonService.toDate(),
       fromDate: this._commonService.fromDate()
     });
@@ -171,7 +172,7 @@ export class TripComponent implements OnInit {
         }
         else {
           this.hideReport = false;
-          this._snackBar.open(res.statusMessage, 'OK');
+          this._snackBar.open("No data found", 'OK');
           this.spinner.hide();
         }
       })
